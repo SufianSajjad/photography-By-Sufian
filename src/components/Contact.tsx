@@ -187,103 +187,61 @@ const Contact = () => {
                   </motion.div>
                 ))}
               </div>
-              </div>
+            </div>
 
-              {/* Social Media Links */}
+            {/* Google Maps Embed */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700"
+              className="bg-white dark:bg-gray-800 rounded-2xl p-0 shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden"
             >
-              <h4 className="font-bold text-gray-900 dark:text-white mb-6 text-xl">
-                Follow Us
-              </h4>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                  {socialLinks.map((social, idx) => (
-                  <motion.a
-                      key={idx}
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.4, delay: idx * 0.1 }}
-                    viewport={{ once: true }}
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`group flex items-center gap-3 p-4 bg-gradient-to-r ${social.bgColor} rounded-xl text-white shadow-lg hover:shadow-xl transition-all duration-300`}
-                      title={social.name}
-                    >
-                    <social.icon className="w-5 h-5" />
-                    <span className="font-medium text-sm">{social.name}</span>
-                  </motion.a>
-                  ))}
-              </div>
+              <iframe
+                title="TechVersa Office Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13613.073232063873!2d74.217932!3d31.400000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391904b2b2b2b2b2%3A0x1234567890abcdef!2sBahria%20Town%2C%20Lahore!5e0!3m2!1sen!2s!4v1680000000000!5m2!1sen!2s"
+                width="100%"
+                height="220"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </motion.div>
           </motion.div>
 
-          {/* Map and Additional Info */}
-          <motion.div variants={itemVariants} className="space-y-8">
-            {/* Google Map */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-200 dark:border-gray-700"
-            >
-              <h4 className="font-bold text-gray-900 dark:text-white mb-4 text-xl">
-                Our Location
-              </h4>
-              <div className="rounded-xl overflow-hidden shadow-lg">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d435519.227375047!2d74.00472469726561!3d31.483103089077267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190483e58107d9%3A0xc23abe6ccc7e2462!2sBahria%20Town%2C%20Lahore%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1704110400000!5m2!1sen!2s"
-                  width="100%"
-                  height="300"
-                  style={{ border: 0 }}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="rounded-lg"
-                  title="TechVersa Office Location"
-                />
-              </div>
-            </motion.div>
-
-            {/* Call to Action */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-br from-primary-50 to-accent-50 dark:from-primary-900/20 dark:to-accent-900/20 rounded-2xl p-8 border border-primary-200 dark:border-primary-800"
-            >
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                Ready to Start Your Project?
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-6">
-                Let's discuss your ideas and turn them into reality. We're here to help you succeed.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+          {/* Social Media Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700"
+          >
+            <h4 className="font-bold text-gray-900 dark:text-white mb-6 text-xl">
+              Follow Us
+            </h4>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              {socialLinks.map((social, idx) => (
                 <motion.a
-                  href="mailto:info@techversa.com"
-                  whileHover={{ scale: 1.05 }}
+                  key={idx}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: idx * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.05, y: -5 }}
                   whileTap={{ scale: 0.95 }}
-                  className="button-primary text-center"
+                  className={`group flex items-center gap-3 p-4 bg-gradient-to-r ${social.bgColor} rounded-xl text-white shadow-lg hover:shadow-xl transition-all duration-300`}
+                  title={social.name}
                 >
-                  Send Email
+                  <social.icon className="w-5 h-5" />
+                  <span className="font-medium text-sm">{social.name}</span>
                 </motion.a>
-                <motion.a
-                  href="tel:+923211234567"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="button-secondary text-center"
-                >
-                  Call Now
-                </motion.a>
-              </div>
-            </motion.div>
+              ))}
+            </div>
           </motion.div>
         </motion.div>
       </div>

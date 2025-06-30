@@ -198,59 +198,50 @@ const Technologies: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Technology Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {techCategories.map((category, categoryIndex) => (
+        {/* Tech Categories Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {techCategories.map((cat, idx) => (
             <motion.div
-              key={category.title}
-              variants={itemVariants}
-              className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-all duration-300"
+              key={cat.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: idx * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 p-8 flex flex-col items-center group hover:shadow-2xl transition-all duration-300"
             >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center text-white shadow-lg">
-                  <category.icon className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">
-                    {category.title}
-                  </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
-                    {category.description}
-                  </p>
-                </div>
+              <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-br from-primary-400 to-accent-400 mb-4 shadow-lg">
+                <cat.icon className="w-8 h-8 text-white" />
               </div>
-              
-              <div className="grid grid-cols-2 gap-3">
-                {category.technologies.map((tech, techIndex) => (
+              <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white text-center">{cat.title}</h3>
+              <p className="text-gray-500 dark:text-gray-400 text-sm mb-4 text-center">{cat.description}</p>
+              {/* Tech Logos Grid */}
+              <div className="grid grid-cols-4 gap-4 mt-2">
+                {cat.technologies.map((tech, i) => (
                   <motion.div
                     key={tech.name}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3, delay: (categoryIndex * 0.1) + (techIndex * 0.05) }}
-                    viewport={{ once: true }}
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    className="group relative"
+                    whileHover={{ scale: 1.15, zIndex: 2 }}
+                    className="relative flex flex-col items-center group cursor-pointer"
                   >
-                    <div className="flex items-center space-x-2 p-3 rounded-lg bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition-all duration-200 border border-gray-200 dark:border-gray-600">
-                      <div className={`w-3 h-3 rounded-full ${tech.color}`} />
-                      <span className="text-sm font-medium text-gray-700 dark:text-gray-300 flex-1">
-                        {tech.name}
-                      </span>
-                      <div className={`w-2 h-2 rounded-full ${getLevelColor(tech.level)} opacity-0 group-hover:opacity-100 transition-opacity duration-200`} 
-                           title={tech.level} />
+                    {/* Logo image source: https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/{techname}.svg */}
+                    <div className={`w-10 h-10 flex items-center justify-center rounded-lg shadow-md bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 group-hover:ring-2 group-hover:ring-primary-400 transition-all duration-200`}>
+                      <img
+                        src={`https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/${tech.name.replace(/\s|\./g, '').toLowerCase()}.svg`}
+                        alt={tech.name + " logo"}
+                        className="w-7 h-7 object-contain"
+                        draggable="false"
+                        style={{ filter: 'invert(0.2) sepia(1) saturate(5) hue-rotate(180deg)' }}
+                      />
+                    </div>
+                    {/* Tooltip */}
+                    <div className="absolute bottom-[-2.2rem] left-1/2 -translate-x-1/2 px-2 py-1 rounded bg-gray-900 text-white text-xs opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-200 whitespace-nowrap z-30 shadow-lg">
+                      {tech.name} <span className="ml-1 text-primary-400">({tech.level})</span>
                     </div>
                   </motion.div>
                 ))}
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Additional Info */}
         <motion.div

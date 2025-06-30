@@ -280,6 +280,10 @@ const Footer = () => {
           </div>
         </motion.div>
       </motion.div>
+      {/* Copyright/Attribution */}
+      <div className="w-full text-center py-4 text-xs text-gray-500 bg-gradient-to-r from-gray-900/80 via-gray-800/80 to-gray-900/80">
+        © {currentYear} TechVersa. Crafted with passion.
+      </div>
     </footer>
   );
 };

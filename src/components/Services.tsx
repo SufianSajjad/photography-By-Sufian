@@ -198,21 +198,13 @@ const Services: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary-100 to-accent-100 dark:from-primary-900/30 dark:to-accent-900/30 backdrop-blur-sm border border-primary-200 dark:border-primary-700 rounded-full px-4 py-2 mb-6">
-            <Star className="w-4 h-4 text-primary-600 dark:text-primary-400" />
-            <p className="text-sm text-primary-600 dark:text-primary-400 uppercase tracking-wider font-medium">
-              Our Services
-            </p>
-          </div>
-
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Building Smart <span className="gradient-text">Solutions</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
+            Our Services
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            We deliver cutting-edge technology solutions that drive business growth and innovation
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            We build innovative digital solutions for ambitious businesses. Explore our core services below.
           </p>
         </motion.div>
 
@@ -247,18 +239,34 @@ const Services: React.FC = () => {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 mb-16">
-          {services.map((service, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {services.map((service, idx) => (
             <motion.div
               key={service.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ scale: 1.04, boxShadow: "0 8px 32px 0 rgba(0,0,0,0.15)" }}
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
               viewport={{ once: true }}
-              onMouseEnter={() => setHoveredService(service.id)}
+              className={`relative flex flex-col rounded-2xl border ${service.borderColor} ${service.bgColor} shadow-lg overflow-hidden group transition-all duration-300`}
+              onMouseEnter={() => setHoveredService(idx)}
               onMouseLeave={() => setHoveredService(null)}
-              className={`relative group cursor-pointer transition-all duration-300 hover:scale-[1.02]`}
             >
+              {/* Service Image */}
+              {/* Image source: Unsplash or Pexels, e.g. https://images.unsplash.com/photo-1519389950473-47ba0277781c */}
+              <img
+                src={[
+                  "https://images.unsplash.com/photo-1519389950473-47ba0277781c", // Blockchain
+                  "https://images.unsplash.com/photo-1461749280684-dccba630e2f6", // AI/ML
+                  "https://images.unsplash.com/photo-1465101046530-73398c7f28ca", // Full Stack
+                  "https://images.unsplash.com/photo-1519125323398-675f0ddb6308", // Mobile
+                  "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2", // Cloud
+                  "https://images.unsplash.com/photo-1506744038136-46273834b3fb", // UI/UX
+                ][idx]}
+                alt={service.title + " illustration"}
+                className="w-full h-40 object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                draggable="false"
+              />
               <div
                 className={`h-full p-6 lg:p-8 rounded-2xl border transition-all duration-300 ${
                   service.bgColor

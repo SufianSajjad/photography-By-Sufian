@@ -28,8 +28,11 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
+      {/* Animated Background Overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_30%,_rgba(59,130,246,0.07),_transparent_60%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,_rgba(34,197,94,0.07),_transparent_60%)]"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -38,11 +41,12 @@ const About: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
+          <h4 className="text-primary-600 dark:text-primary-400 font-semibold uppercase tracking-widest mb-2 text-sm">Why Choose Us?</h4>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            About <span className="gradient-text">Our Team</span>
+            Building the Future of Digital Innovation
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            We are passionate developers dedicated to creating exceptional digital solutions
+            We are a passionate team of developers, designers, and strategists dedicated to creating exceptional digital solutions for ambitious businesses. Our expertise spans web, mobile, blockchain, and AI—empowering you to thrive in a fast-evolving world.
           </p>
         </motion.div>
 

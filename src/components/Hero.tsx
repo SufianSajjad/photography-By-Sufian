@@ -35,8 +35,55 @@ const Hero: React.FC = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 bg-gradient-to-br from-gray-50 via-white to-primary-50 dark:from-gray-900 dark:via-gray-800 dark:to-primary-900"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 bg-gray-950 dark:bg-gray-950"
     >
+      {/* Circuit Background Overlay */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/images/circuit-bg.jpg"
+          alt="Circuit background"
+          className="w-full h-full object-cover opacity-30 mix-blend-lighten"
+          draggable="false"
+        />
+      </div>
+      {/* Parallax Code Editor Image (background) */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/images/laptopCoding.jpg"
+          alt="Code editor screenshot"
+          className="w-full h-full object-cover opacity-40 blur-sm scale-105"
+          draggable="false"
+        />
+        {/* Image source: Unsplash or your own screenshot */}
+        {/* Dark gradient overlay for text visibility */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-transparent" />
+      </div>
+      {/* Animated Stars/Particles Overlay */}
+      <div className="absolute inset-0 z-10 pointer-events-none">
+        {[...Array(40)].map((_, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{
+              opacity: [0, 1, 0],
+              scale: [0.5, 1, 0.5],
+              y: [0, Math.random() * 100 - 50, 0],
+              x: [0, Math.random() * 100 - 50, 0],
+            }}
+            transition={{
+              duration: 6 + Math.random() * 4,
+              repeat: Infinity,
+              delay: Math.random() * 4,
+            }}
+            className="absolute top-1/2 left-1/2 w-1.5 h-1.5 bg-white/80 rounded-full shadow-lg"
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+            }}
+          />
+        ))}
+      </div>
+
       {/* Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,_rgba(59,130,246,0.1),_transparent_50%)]"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,_rgba(34,197,94,0.1),_transparent_50%)]"></div>
@@ -99,9 +146,9 @@ const Hero: React.FC = () => {
         {/* Main Heading */}
         <motion.h1
           variants={itemVariants}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]"
         >
-          <span className="text-gray-900 dark:text-white">Let's Seal</span>
+          <span className="text-white">Let's Seal</span>
           <br />
           <span className="gradient-text">The Tech Deal!</span>
         </motion.h1>
@@ -109,11 +156,11 @@ const Hero: React.FC = () => {
         {/* Subtitle */}
         <motion.p
           variants={itemVariants}
-          className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
+          className="text-xl md:text-2xl text-gray-100 dark:text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]"
         >
           Smart AI & Blockchain solutions built to grow your business.
           <br />
-          <span className="text-lg text-gray-500 dark:text-gray-400">
+          <span className="text-lg text-gray-200 dark:text-gray-300">
             Transforming ideas into digital reality with cutting-edge technology.
           </span>
         </motion.p>
