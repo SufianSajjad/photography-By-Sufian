@@ -83,15 +83,28 @@ const Team = () => {
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.15,
+              },
+            },
+          }}
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+        >
           {teamMembers.map((member, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: idx * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.04, boxShadow: "0 8px 32px 0 rgba(0,255,128,0.10)" }}
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+              }}
+              whileHover={{ scale: 1.06, boxShadow: '0 0 32px 0 #06b6d4' }}
               className={`group relative bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 hover:border-green-400/50 transition-all duration-500 transform hover:-translate-y-2 ${
                 hoveredCard === idx ? "scale-105 shadow-2xl shadow-green-400/20" : ""
               }`}
@@ -105,7 +118,7 @@ const Team = () => {
               <div className="relative z-10">
                 {/* Profile Image */}
                 <div className="relative mb-6">
-                  <div className="w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-gray-600 group-hover:border-green-400 transition-colors duration-300">
+                  <div className="w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-gray-600 group-hover:border-green-400 transition-colors duration-300 animate-glow-icon">
                     <img
                       src={member.image}
                       alt={member.name}
@@ -149,7 +162,7 @@ const Team = () => {
                 <div className="flex justify-center gap-4">
                   <a
                     href={member.linkedin}
-                    className="w-10 h-10 bg-gray-800/60 border border-gray-600/50 rounded-full flex items-center justify-center hover:bg-blue-600 hover:border-blue-500 transition-colors duration-300 group/link"
+                    className="w-10 h-10 bg-gray-800/60 border border-gray-600/50 rounded-full flex items-center justify-center hover:bg-blue-600 hover:border-blue-500 transition-colors duration-300 group/link animate-glow-icon"
                   >
                     {/* LinkedIn SVG */}
                     <svg
@@ -162,7 +175,7 @@ const Team = () => {
                   </a>
                   <a
                     href={member.twitter}
-                    className="w-10 h-10 bg-gray-800/60 border border-gray-600/50 rounded-full flex items-center justify-center hover:bg-blue-400 hover:border-blue-400 transition-colors duration-300 group/link"
+                    className="w-10 h-10 bg-gray-800/60 border border-gray-600/50 rounded-full flex items-center justify-center hover:bg-blue-400 hover:border-blue-400 transition-colors duration-300 group/link animate-glow-icon"
                   >
                     {/* Twitter SVG */}
                     <svg
@@ -177,7 +190,7 @@ const Team = () => {
                     href={`mailto:${member.name
                       .toLowerCase()
                       .replace(" ", ".")}@company.com`}
-                    className="w-10 h-10 bg-gray-800/60 border border-gray-600/50 rounded-full flex items-center justify-center hover:bg-green-500 hover:border-green-500 transition-colors duration-300 group/link"
+                    className="w-10 h-10 bg-gray-800/60 border border-gray-600/50 rounded-full flex items-center justify-center hover:bg-green-500 hover:border-green-500 transition-colors duration-300 group/link animate-glow-icon"
                   >
                     {/* Email SVG */}
                     <svg
@@ -201,7 +214,7 @@ const Team = () => {
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-green-400/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-xl"></div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Call to Action */}
         <div className="text-center">

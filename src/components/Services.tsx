@@ -28,151 +28,55 @@ const Services: React.FC = () => {
       id: 0,
       title: "Blockchain Development",
       icon: Zap,
-      shortDesc: "Secure, decentralized systems",
-      description:
-        "Build cutting-edge blockchain solutions with smart contracts, DeFi platforms, and Web3 integrations that revolutionize digital transactions.",
-      keyFeatures: [
-        "Smart Contract Development",
-        "DeFi Platform Creation",
-        "NFT Marketplace Solutions",
-        "Web3 Integration",
-        "Cryptocurrency Wallets",
-        "DApp Development",
-      ],
-      benefits: [
-        "Enhanced Security",
-        "Transparency",
-        "Cost Reduction",
-        "Global Accessibility",
-      ],
-      color: "from-blue-500 to-cyan-500",
-      bgColor: "bg-blue-50 dark:bg-blue-900/20",
-      borderColor: "border-blue-200 dark:border-blue-800",
+      shortDesc: "Secure, decentralized blockchain solutions. Unlock new business models and global trust with Web3 expertise.",
+      color: "from-blue-400 to-cyan-400",
+      iconBg: "bg-gradient-to-br from-blue-600/60 to-cyan-400/40",
+      borderColor: "border-blue-400/60",
     },
     {
       id: 1,
       title: "AI & Machine Learning",
       icon: Brain,
-      shortDesc: "Intelligent automation solutions",
-      description:
-        "Empower your business with custom AI models, NLP solutions, and intelligent automation systems that drive innovation and efficiency.",
-      keyFeatures: [
-        "Custom AI Model Development",
-        "Natural Language Processing",
-        "Computer Vision Solutions",
-        "Predictive Analytics",
-        "Chatbot Development",
-        "Data Mining & Analysis",
-      ],
-      benefits: [
-        "Process Automation",
-        "Data-Driven Insights",
-        "Improved Efficiency",
-        "Competitive Advantage",
-      ],
-      color: "from-teal-500 to-cyan-500",
-      bgColor: "bg-teal-50 dark:bg-teal-900/20",
-      borderColor: "border-teal-200 dark:border-teal-800",
+      shortDesc: "Custom AI/ML for automation, analytics, and smarter decisions. Transform your data into real business value.",
+      color: "from-teal-400 to-cyan-400",
+      iconBg: "bg-gradient-to-br from-teal-600/60 to-cyan-400/40",
+      borderColor: "border-teal-400/60",
     },
     {
       id: 2,
       title: "Full Stack Development",
       icon: Code,
-      shortDesc: "Complete web solutions",
-      description:
-        "End-to-end web application development using modern frameworks and scalable architectures that deliver exceptional user experiences.",
-      keyFeatures: [
-        "Modern Framework Development",
-        "API Design & Development",
-        "Database Architecture",
-        "Cloud Integration",
-        "Performance Optimization",
-        "Security Implementation",
-      ],
-      benefits: [
-        "Scalable Solutions",
-        "Fast Development",
-        "Maintainable Code",
-        "Cross-Platform Compatibility",
-      ],
-      color: "from-indigo-500 to-purple-500",
-      bgColor: "bg-indigo-50 dark:bg-indigo-900/20",
-      borderColor: "border-indigo-200 dark:border-indigo-800",
+      shortDesc: "Robust, scalable web/mobile solutions. Modern architectures for seamless user experiences and rapid launch.",
+      color: "from-indigo-400 to-purple-400",
+      iconBg: "bg-gradient-to-br from-indigo-600/60 to-purple-400/40",
+      borderColor: "border-indigo-400/60",
     },
     {
       id: 3,
       title: "Mobile Development",
       icon: Smartphone,
-      shortDesc: "Cross-platform mobile apps",
-      description:
-        "Native and cross-platform mobile applications for iOS and Android with superior performance and engaging user interfaces.",
-      keyFeatures: [
-        "Cross-Platform Development",
-        "Native Performance",
-        "UI/UX Design",
-        "App Store Optimization",
-        "Push Notifications",
-        "Offline Functionality",
-      ],
-      benefits: [
-        "Wider Reach",
-        "Cost Efficiency",
-        "Faster Time to Market",
-        "Consistent Experience",
-      ],
-      color: "from-green-500 to-emerald-500",
-      bgColor: "bg-green-50 dark:bg-green-900/20",
-      borderColor: "border-green-200 dark:border-green-800",
+      shortDesc: "High-performance native/cross-platform apps. Beautiful design meets flawless functionality everywhere.",
+      color: "from-green-400 to-emerald-400",
+      iconBg: "bg-gradient-to-br from-green-600/60 to-emerald-400/40",
+      borderColor: "border-green-400/60",
     },
     {
       id: 4,
       title: "Cloud & DevOps",
       icon: Database,
-      shortDesc: "Scalable cloud infrastructure",
-      description:
-        "Robust cloud architecture, database optimization, and automated deployment pipelines that ensure reliability and scalability.",
-      keyFeatures: [
-        "Cloud Architecture Design",
-        "Database Optimization",
-        "CI/CD Pipeline Setup",
-        "Security & Compliance",
-        "Monitoring & Logging",
-        "Disaster Recovery",
-      ],
-      benefits: [
-        "Scalability",
-        "Reliability",
-        "Cost Optimization",
-        "Faster Deployment",
-      ],
-      color: "from-purple-500 to-pink-500",
-      bgColor: "bg-purple-50 dark:bg-purple-900/20",
-      borderColor: "border-purple-200 dark:border-purple-800",
+      shortDesc: "Scale with secure cloud, CI/CD, and automation. Reliable, optimized infrastructure for growth.",
+      color: "from-purple-400 to-pink-400",
+      iconBg: "bg-gradient-to-br from-purple-600/60 to-pink-400/40",
+      borderColor: "border-purple-400/60",
     },
     {
       id: 5,
       title: "UI/UX Design",
       icon: Globe,
-      shortDesc: "Beautiful user experiences",
-      description:
-        "Modern, intuitive designs that convert visitors into customers with exceptional user experiences and conversion optimization.",
-      keyFeatures: [
-        "User Research & Testing",
-        "Wireframing & Prototyping",
-        "Responsive Design",
-        "Conversion Optimization",
-        "Accessibility Design",
-        "Design Systems",
-      ],
-      benefits: [
-        "Higher Conversion Rates",
-        "Better User Engagement",
-        "Reduced Bounce Rate",
-        "Brand Recognition",
-      ],
-      color: "from-orange-500 to-red-500",
-      bgColor: "bg-orange-50 dark:bg-orange-900/20",
-      borderColor: "border-orange-200 dark:border-orange-800",
+      shortDesc: "Stunning, intuitive UI/UX that delights users and drives conversions. Elevate your brand experience.",
+      color: "from-orange-400 to-red-400",
+      iconBg: "bg-gradient-to-br from-orange-600/60 to-red-400/40",
+      borderColor: "border-orange-400/60",
     },
   ];
 
@@ -203,7 +107,7 @@ const Services: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
             Our Services
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-400 dark:text-gray-300 max-w-2xl mx-auto">
             We build innovative digital solutions for ambitious businesses. Explore our core services below.
           </p>
         </motion.div>
@@ -238,111 +142,116 @@ const Services: React.FC = () => {
           ))}
         </motion.div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {services.map((service, idx) => (
-            <motion.div
-              key={service.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.04, boxShadow: "0 8px 32px 0 rgba(0,0,0,0.15)" }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
-              viewport={{ once: true }}
-              className={`relative flex flex-col rounded-2xl border ${service.borderColor} ${service.bgColor} shadow-lg overflow-hidden group transition-all duration-300`}
-              onMouseEnter={() => setHoveredService(idx)}
-              onMouseLeave={() => setHoveredService(null)}
-            >
-              {/* Service Image */}
-              {/* Image source: Unsplash or Pexels, e.g. https://images.unsplash.com/photo-1519389950473-47ba0277781c */}
-              <img
-                src={[
-                  "https://images.unsplash.com/photo-1519389950473-47ba0277781c", // Blockchain
-                  "https://images.unsplash.com/photo-1461749280684-dccba630e2f6", // AI/ML
-                  "https://images.unsplash.com/photo-1465101046530-73398c7f28ca", // Full Stack
-                  "https://images.unsplash.com/photo-1519125323398-675f0ddb6308", // Mobile
-                  "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2", // Cloud
-                  "https://images.unsplash.com/photo-1506744038136-46273834b3fb", // UI/UX
-                ][idx]}
-                alt={service.title + " illustration"}
-                className="w-full h-40 object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                draggable="false"
-              />
-              <div
-                className={`h-full p-6 lg:p-8 rounded-2xl border transition-all duration-300 ${
-                  service.bgColor
-                } ${service.borderColor} hover:shadow-xl ${
-                  hoveredService === service.id
-                    ? "shadow-xl scale-[1.02] -translate-y-1"
-                    : "shadow-lg"
-                }`}
-              >
-                {/* Service Icon */}
+        {/* Parallax Circuit Overlay */}
+        <motion.div
+          className="absolute inset-0 z-0"
+          style={{ y: typeof window !== 'undefined' ? window.scrollY * 0.06 : 0 }}
+        >
+          <div
+            style={{
+              backgroundImage: "url('https://www.transparenttextures.com/patterns/circuit-board.png')",
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              width: '100%',
+              height: '100%',
+              opacity: 0.20,
+              mixBlendMode: 'lighten',
+            }}
+          />
+        </motion.div>
+
+        {/* Services Cards */}
+        <div className="flex flex-col gap-10 mt-12">
+          {/* Dedicated row for Blockchain Development */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+            viewport={{ once: true }}
+            className="w-full"
+          >
+            {(() => {
+              const service = services[0];
+              const Icon = service.icon;
+              return (
                 <div
-                  className={`inline-flex p-4 rounded-xl bg-gradient-to-r ${service.color} mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300`}
+                  className={`relative group rounded-3xl border ${service.borderColor} bg-white/10 dark:bg-gray-900/40 backdrop-blur-md shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:border-cyan-400/80 mx-auto`}
+                  style={{ minHeight: 320, maxWidth: '900px', padding: '2.5rem 2rem' }}
                 >
-                  <service.icon className="w-7 h-7 text-white" />
-                </div>
-
-                {/* Service Title */}
-                <h3 className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white mb-3">
-                  {service.title}
-                </h3>
-
-                <p className="text-gray-600 dark:text-gray-400 mb-6 text-sm lg:text-base leading-relaxed">
-                  {service.description}
-                </p>
-
-                {/* Key Features */}
-                <div className="mb-6">
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-4 text-sm lg:text-base">
-                    Key Features:
-                  </h4>
-                  <div className="space-y-3">
-                    {service.keyFeatures.slice(0, 4).map((feature, idx) => (
-                      <div key={idx} className="flex items-start gap-3">
-                        <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-600 dark:text-gray-300 text-xs lg:text-sm leading-relaxed">
-                          {feature}
-                        </span>
-                      </div>
-                    ))}
-                    {service.keyFeatures.length > 4 && (
-                      <div className="text-xs text-gray-500 dark:text-gray-400 mt-2">
-                        +{service.keyFeatures.length - 4} more features
-                      </div>
-                    )}
+                  {/* Circuit SVG Overlay */}
+                  <svg className="absolute inset-0 w-full h-full opacity-20 pointer-events-none" viewBox="0 0 900 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0" y="0" width="900" height="320" rx="32" fill="none" />
+                    <g stroke="url(#circuitGradient)" strokeWidth="1.2">
+                      <path d="M60 60h120v60h80v60h120v60h80v60h120" />
+                      <path d="M840 60h-120v60h-80v60h-120v60h-80v60h-120" />
+                    </g>
+                    <defs>
+                      <linearGradient id="circuitGradient" x1="0" y1="0" x2="900" y2="320" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="#38bdf8" />
+                        <stop offset="1" stopColor="#818cf8" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  {/* Icon with Glassy/Circuit Background */}
+                  <div className={`relative flex items-center justify-center w-20 h-20 mx-auto -mt-12 mb-4 rounded-2xl ${service.iconBg} shadow-lg backdrop-blur-md border border-white/20`}>
+                    <Icon size={48} className="text-white drop-shadow-lg" style={{ filter: "drop-shadow(0 0 12px #38bdf8)" }} />
                   </div>
-                </div>
-
-                {/* Benefits */}
-                <div className="mb-6">
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-3 text-sm lg:text-base">
-                    Benefits:
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {service.benefits.map((benefit, idx) => (
-                      <span
-                        key={idx}
-                        className="px-3 py-1 bg-white dark:bg-gray-700 text-xs font-medium text-gray-700 dark:text-gray-300 rounded-full border border-gray-200 dark:border-gray-600"
-                      >
-                        {benefit}
-                      </span>
-                    ))}
+                  {/* Title & Short Description */}
+                  <div className="px-8 pb-10 pt-2 flex flex-col items-center text-center">
+                    <h3 className="text-2xl font-bold text-white mb-3 drop-shadow-sm">{service.title}</h3>
+                    <p className="text-gray-200 text-base leading-relaxed min-h-[48px] max-w-2xl">{service.shortDesc}</p>
                   </div>
+                  {/* Animated border on hover */}
+                  <div className="absolute inset-0 rounded-3xl pointer-events-none border-2 border-transparent group-hover:border-cyan-400/80 transition-all duration-300" />
                 </div>
-
-                {/* Learn More Button */}
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center gap-2 text-primary-600 dark:text-primary-400 font-semibold text-sm hover:text-primary-700 dark:hover:text-primary-300 transition-colors duration-300"
+              );
+            })()}
+          </motion.div>
+          {/* Grid for remaining services */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
+          >
+            {services.slice(1).map((service, idx) => {
+              const Icon = service.icon;
+              return (
+                <div
+                  key={service.id}
+                  className={`relative group rounded-2xl border ${service.borderColor} bg-white/10 dark:bg-gray-900/40 backdrop-blur-md shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-cyan-400/80`}
+                  style={{ minHeight: 260, padding: '2rem 1.5rem' }}
                 >
-                  Learn More
-                  <ArrowRight className="w-4 h-4" />
-                </motion.div>
-              </div>
-            </motion.div>
-          ))}
+                  {/* Circuit SVG Overlay */}
+                  <svg className="absolute inset-0 w-full h-full opacity-20 pointer-events-none" viewBox="0 0 400 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0" y="0" width="400" height="260" rx="24" fill="none" />
+                    <g stroke="url(#circuitGradient)" strokeWidth="1.2">
+                      <path d="M30 30h60v40h40v40h60v40h40v40h60" />
+                      <path d="M370 30h-60v40h-40v40h-60v40h-40v40h-60" />
+                    </g>
+                    <defs>
+                      <linearGradient id="circuitGradient" x1="0" y1="0" x2="400" y2="260" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="#38bdf8" />
+                        <stop offset="1" stopColor="#818cf8" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  {/* Icon with Glassy/Circuit Background */}
+                  <div className={`relative flex items-center justify-center w-16 h-16 mx-auto -mt-8 mb-2 rounded-xl ${service.iconBg} shadow-lg backdrop-blur-md border border-white/20`}>
+                    <Icon size={36} className="text-white drop-shadow-lg" style={{ filter: "drop-shadow(0 0 8px #38bdf8)" }} />
+                  </div>
+                  {/* Title & Short Description */}
+                  <div className="px-6 pb-8 pt-2 flex flex-col items-center text-center">
+                    <h3 className="text-lg font-bold text-white mb-2 drop-shadow-sm">{service.title}</h3>
+                    <p className="text-gray-200 text-sm leading-relaxed min-h-[48px]">{service.shortDesc}</p>
+                  </div>
+                  {/* Animated border on hover */}
+                  <div className="absolute inset-0 rounded-2xl pointer-events-none border-2 border-transparent group-hover:border-cyan-400/80 transition-all duration-300" />
+                </div>
+              );
+            })}
+          </motion.div>
         </div>
 
         {/* Call to Action */}

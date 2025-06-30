@@ -117,7 +117,7 @@ const Footer = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
+        className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 animate-fadein"
       >
         {/* Main Footer Content */}
         <div className="grid lg:grid-cols-12 gap-12 mb-12">
@@ -127,7 +127,7 @@ const Footer = () => {
               {/* Logo and Brand */}
               <div className="flex items-center space-x-3 group">
                 <div className="relative">
-                  <div className="w-12 h-12 bg-gradient-to-r from-primary-600 to-accent-500 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-primary-500/25 transition-all duration-300">
+                  <div className="w-12 h-12 bg-gradient-to-r from-primary-600 to-accent-500 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-primary-500/25 transition-all duration-300 animate-glow-icon">
                     <Zap className="w-6 h-6 text-white" />
                   </div>
                   <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full opacity-75 animate-pulse"></div>
@@ -181,9 +181,9 @@ const Footer = () => {
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileHover={{ scale: 1.1, y: -2, boxShadow: '0 0 16px 2px #06b6d4' }}
                     whileTap={{ scale: 0.95 }}
-                    className={`p-3 bg-gray-800/50 backdrop-blur-sm rounded-xl ${social.color} transition-all duration-300 hover:shadow-lg group`}
+                    className={`p-3 bg-gray-800/50 backdrop-blur-sm rounded-xl ${social.color} transition-all duration-300 hover:shadow-lg group animate-glow-icon`}
                     aria-label={social.label}
                   >
                     <social.icon className="w-5 h-5 group-hover:animate-pulse" />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, Play, Star, Zap, Shield, Users } from "lucide-react";
 
@@ -32,22 +32,39 @@ const Hero: React.FC = () => {
     },
   };
 
+  const [scrollY, setScrollY] = useState(0);
+  const heroRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section
       id="home"
+      ref={heroRef}
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 bg-gray-950 dark:bg-gray-950"
     >
-      {/* Circuit Background Overlay */}
-      <div className="absolute inset-0 z-0">
+      {/* Parallax Circuit Background Overlay */}
+      <motion.div
+        className="absolute inset-0 z-0"
+        style={{ y: scrollY * 0.08 }}
+      >
         <img
           src="/images/circuit-bg.jpg"
           alt="Circuit background"
           className="w-full h-full object-cover opacity-30 mix-blend-lighten"
           draggable="false"
         />
-      </div>
+      </motion.div>
       {/* Parallax Code Editor Image (background) */}
-      <div className="absolute inset-0 z-0">
+      <motion.div
+        className="absolute inset-0 z-0"
+        style={{ y: scrollY * 0.12 }}
+      >
         <img
           src="/images/laptopCoding.jpg"
           alt="Code editor screenshot"
@@ -57,8 +74,8 @@ const Hero: React.FC = () => {
         {/* Image source: Unsplash or your own screenshot */}
         {/* Dark gradient overlay for text visibility */}
         <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-transparent" />
-      </div>
-      {/* Animated Stars/Particles Overlay */}
+      </motion.div>
+      {/* Animated Stars/Particles Overlay with parallax */}
       <div className="absolute inset-0 z-10 pointer-events-none">
         {[...Array(40)].map((_, i) => (
           <motion.div
@@ -67,7 +84,7 @@ const Hero: React.FC = () => {
             animate={{
               opacity: [0, 1, 0],
               scale: [0.5, 1, 0.5],
-              y: [0, Math.random() * 100 - 50, 0],
+              y: [0, Math.random() * 100 - 50 + scrollY * 0.05, 0],
               x: [0, Math.random() * 100 - 50, 0],
             }}
             transition={{
@@ -146,7 +163,7 @@ const Hero: React.FC = () => {
         {/* Main Heading */}
         <motion.h1
           variants={itemVariants}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-white shadow-[0_2px_8px_rgba(0,0,0,0.18)]"
         >
           <span className="text-white">Let's Seal</span>
           <br />
@@ -192,10 +209,10 @@ const Hero: React.FC = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
         >
           <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+            className="button-primary text-lg px-8 py-4 shadow-md"
             onClick={() => document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' })}
-            className="button-primary text-lg px-8 py-4"
           >
             Explore Services
           </motion.button>

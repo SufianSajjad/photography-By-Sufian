@@ -279,6 +279,37 @@
   }
 }
 
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 8px #06b6d4, 0 0 16px #a855f7; }
+  50% { text-shadow: 0 0 16px #a855f7, 0 0 8px #06b6d4; }
+}
+.animate-glow {
+  animation: glow 2.5s infinite alternate;
+}
+
+@keyframes border-glow {
+  0%, 100% { box-shadow: 0 0 16px 4px #a855f7, 0 0 32px 8px #06b6d4; }
+  50% { box-shadow: 0 0 32px 8px #06b6d4, 0 0 16px 4px #a855f7; }
+}
+@keyframes border-move {
+  0% { border-image-source: linear-gradient(90deg, #334155, #06b6d4, #334155); }
+  100% { border-image-source: linear-gradient(270deg, #334155, #06b6d4, #334155); }
+}
+@keyframes glow-icon {
+  0%, 100% { box-shadow: 0 0 8px 2px #06b6d4, 0 0 16px 4px #a855f7; }
+  50% { box-shadow: 0 0 16px 4px #a855f7, 0 0 8px 2px #06b6d4; }
+}
+.animate-glow-icon {
+  animation: glow-icon 2.5s infinite alternate;
+}
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadein {
+  animation: fadein 1.2s cubic-bezier(0.4,0,0.2,1) both;
+}
+
 /* Responsive utilities */
 @media (max-width: 640px) {
   .mobile-hidden {
@@ -336,4 +367,8 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-} 
+}
+
+/* Replace any local circuit-bg.jpg background with an online SVG pattern */
+/* Example: */
+/* background-image: url('https://www.transparenttextures.com/patterns/circuit-board.png'); */ 

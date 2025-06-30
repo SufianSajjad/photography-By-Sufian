@@ -7,7 +7,6 @@ import Technologies from "./components/Technologies";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import Expertise from "./components/Expertise";
 import ThemeProvider from "./context/ThemeContext";
 import Standard from "./components/Standard";
 import Team from "./components/Team";
@@ -76,10 +75,18 @@ const Blogs = () => (
   </section>
 );
 
+function SectionDivider() {
+  return (
+    <div className="w-full h-12 flex items-center justify-center">
+      <div className="w-3/4 h-1 rounded-full bg-gradient-to-r from-transparent via-primary-500/40 to-transparent blur-sm opacity-70" />
+    </div>
+  );
+}
+
 function App() {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-primary-50 dark:from-gray-900 dark:via-gray-800 dark:to-primary-900">
+      <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
         <AnimatePresence mode="wait">
           <motion.div
             initial={{ opacity: 0 }}
@@ -90,15 +97,21 @@ function App() {
             <Header />
             <main>
               <Hero />
+              <SectionDivider />
               <TrustedBy />
+              <SectionDivider />
               <Services />
-              <Expertise />
-              <Technologies />
+              <SectionDivider />
               <Standard />
+              <SectionDivider />
               <Hallmarks />
+              <SectionDivider />
               <Team />
+              <SectionDivider />
               <Blogs />
+              <SectionDivider />
               <About />
+              <SectionDivider />
               <Contact />
             </main>
             <Footer />
