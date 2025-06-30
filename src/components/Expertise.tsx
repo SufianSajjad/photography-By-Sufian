@@ -3,10 +3,8 @@ import {
   Code,
   Database,
   Globe,
-  Smartphone,
   Cloud,
   Brain,
-  Cpu,
   Shield,
 } from "lucide-react";
 
