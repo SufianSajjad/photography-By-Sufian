@@ -11,6 +11,7 @@ import ThemeProvider from "./context/ThemeContext";
 import Standard from "./components/Standard";
 import Team from "./components/Team";
 import Expertise from "./components/Expertise";
+import Projects from "./components/Projects";
 
 // Add placeholder components for new sections
 const TrustedBy = () => (
@@ -132,6 +133,8 @@ function App() {
               {/* <SectionDivider /> */}
               <Services />
               <Expertise />
+              {/* <SectionDivider /> */}
+              <Projects />
               {/* <SectionDivider /> */}
               <Standard />
               {/* <SectionDivider /> */}
