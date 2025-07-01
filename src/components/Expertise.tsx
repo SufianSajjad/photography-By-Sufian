@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Code, Database, Globe, Cloud, Brain, Shield } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 
-const Expertise: React.FC = () => {
+const Expertise = () => {
   const [hoveredTech, setHoveredTech] = useState(null);
 
   const techCategories = [
@@ -11,7 +10,6 @@ const Expertise: React.FC = () => {
       title: "Blockchain Technologies",
       icon: Code,
       color: "from-black/20 to-black/30",
-      //   backgroundImage: "/images/background/blockchain.jpg",
       technologies: [
         { name: "Solidity", icon: "⟐", color: "bg-gray-700", proficiency: 95 },
         { name: "Ethereum", icon: "Ξ", color: "bg-blue-600", proficiency: 92 },
@@ -41,7 +39,6 @@ const Expertise: React.FC = () => {
       title: "AI & Machine Learning",
       icon: Brain,
       color: "from-black/20 to-black/30",
-      //  backgroundImage: "/images/background/ai-tech.jpg",
       technologies: [
         {
           name: "TensorFlow",
@@ -66,7 +63,6 @@ const Expertise: React.FC = () => {
       title: "Frontend Development",
       icon: Globe,
       color: "from-black/20 to-black/30",
-      //   backgroundImage: "/images/background/frontend.jpg",
       technologies: [
         { name: "React.js", icon: "⚛️", color: "bg-cyan-500", proficiency: 94 },
         { name: "Next.js", icon: "▲", color: "bg-black", proficiency: 90 },
@@ -86,7 +82,6 @@ const Expertise: React.FC = () => {
       title: "Backend Development",
       icon: Database,
       color: "from-black/20 to-black/30",
-      //  backgroundImage: "/images/background/backend.jpg",
       technologies: [
         { name: "Node.js", icon: "🟢", color: "bg-green-600", proficiency: 91 },
         { name: "Python", icon: "🐍", color: "bg-yellow-500", proficiency: 95 },
@@ -106,7 +101,6 @@ const Expertise: React.FC = () => {
       title: "Database Systems",
       icon: Database,
       color: "from-black/20 to-black/30",
-      //  backgroundImage: "/images/background/database.jpg",
       technologies: [
         {
           name: "DynamoDB",
@@ -114,9 +108,6 @@ const Expertise: React.FC = () => {
           color: "bg-indigo-700",
           proficiency: 83,
         },
-
-        // 📡 Distributed Systems
-
         { name: "MongoDB", icon: "🍃", color: "bg-green-500", proficiency: 90 },
         {
           name: "PostgreSQL",
@@ -139,7 +130,6 @@ const Expertise: React.FC = () => {
       title: "Cloud & DevOps",
       icon: Cloud,
       color: "from-black/20 to-black/30",
-      // backgroundImage: "/images/background/cloud.jpg",
       technologies: [
         { name: "Docker", icon: "🐳", color: "bg-blue-500", proficiency: 89 },
         { name: "AWS", icon: "🌩️", color: "bg-orange-400", proficiency: 85 },
@@ -173,13 +163,7 @@ const Expertise: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Technical Expertise
           </h2>
@@ -187,32 +171,15 @@ const Expertise: React.FC = () => {
             Comprehensive technology stack spanning blockchain development,
             AI/ML solutions, and modern cloud infrastructure
           </p>
-        </motion.div>
+        </div>
 
         {/* Categories Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
           {techCategories.map((category, index) => (
-            <motion.div
+            <div
               key={category.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="relative group rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden"
+              className="relative group rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
             >
-              {/* Background Image with Blur */}
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  //backgroundImage: `url('${category.backgroundImage}')`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                  filter: "blur(1px)",
-                  transform: "scale(1.05)",
-                }}
-              />
-
               {/* Professional Overlay */}
               <div className="absolute inset-0 bg-slate-900/40 z-10" />
               <div className="absolute inset-0 bg-white/5 z-20" />
@@ -233,13 +200,8 @@ const Expertise: React.FC = () => {
               <div className="relative z-30 p-6 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm">
                 <div className="grid grid-cols-2 gap-3">
                   {category.technologies.map((tech, techIndex) => (
-                    <motion.div
+                    <div
                       key={tech.name}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.3, delay: techIndex * 0.05 }}
-                      viewport={{ once: true }}
-                      // onMouseEnter={() => setHoveredTech(tech.name)}
                       onMouseLeave={() => setHoveredTech(null)}
                       className="group/tech cursor-pointer"
                     >
@@ -253,40 +215,21 @@ const Expertise: React.FC = () => {
                           <span className="font-medium text-gray-900 dark:text-white text-sm">
                             {tech.name}
                           </span>
-                          {/* Proficiency Bar */}
-                          {/* <div className="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-1.5 mt-1">
-                            <motion.div
-                              className={`${tech.color} h-1.5 rounded-full`}
-                              initial={{ width: 0 }}
-                              whileInView={{ width: `${tech.proficiency}%` }}
-                              transition={{
-                                duration: 1,
-                                delay: techIndex * 0.1,
-                              }}
-                              viewport={{ once: true }}
-                            />
-                          </div> */}
                         </div>
                       </div>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               </div>
 
               {/* Hover Border Effect */}
-              <div className="absolute inset-0 rounded-2xl pointer-events-none border-2 border-transparent group-hover:border-blue-400/50 transition-all duration-500 z-40" />
-            </motion.div>
+              <div className="absolute inset-0 rounded-2xl pointer-events-none border-2 border-transparent group-hover:border-blue-400/50 transition-all duration-300 z-40" />
+            </div>
           ))}
         </div>
 
         {/* Professional Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8"
-        >
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
             {
               value: "20+",
@@ -309,12 +252,8 @@ const Expertise: React.FC = () => {
               color: "text-orange-600 dark:text-orange-400",
             },
           ].map((stat, index) => (
-            <motion.div
+            <div
               key={stat.label}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
               className="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
             >
               <div className={`text-3xl font-bold ${stat.color} mb-2`}>
@@ -323,9 +262,9 @@ const Expertise: React.FC = () => {
               <div className="text-gray-600 dark:text-gray-300 font-medium">
                 {stat.label}
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
