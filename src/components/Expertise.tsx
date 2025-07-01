@@ -10,8 +10,8 @@ const Expertise: React.FC = () => {
       id: "blockchain",
       title: "Blockchain Technologies",
       icon: Code,
-      color: "from-slate-600 to-gray-700",
-      backgroundImage: "/images/background/blockchain.jpg",
+      color: "from-black/20 to-black/30",
+      //   backgroundImage: "/images/background/blockchain.jpg",
       technologies: [
         { name: "Solidity", icon: "⟐", color: "bg-gray-700", proficiency: 95 },
         { name: "Ethereum", icon: "Ξ", color: "bg-blue-600", proficiency: 92 },
@@ -28,15 +28,20 @@ const Expertise: React.FC = () => {
           proficiency: 85,
         },
         { name: "IPFS", icon: "📁", color: "bg-teal-600", proficiency: 82 },
-        { name: "Truffle", icon: "🍫", color: "bg-brown-600", proficiency: 78 },
+        {
+          name: "BNB Chain",
+          icon: "🟡",
+          color: "bg-yellow-500",
+          proficiency: 83,
+        },
       ],
     },
     {
       id: "ai",
       title: "AI & Machine Learning",
       icon: Brain,
-      color: "from-slate-600 to-gray-700",
-      backgroundImage: "/images/background/ai-tech.jpg",
+      color: "from-black/20 to-black/30",
+      //  backgroundImage: "/images/background/ai-tech.jpg",
       technologies: [
         {
           name: "TensorFlow",
@@ -60,8 +65,8 @@ const Expertise: React.FC = () => {
       id: "frontend",
       title: "Frontend Development",
       icon: Globe,
-      color: "from-slate-600 to-gray-700",
-      backgroundImage: "/images/background/frontend.jpg",
+      color: "from-black/20 to-black/30",
+      //   backgroundImage: "/images/background/frontend.jpg",
       technologies: [
         { name: "React.js", icon: "⚛️", color: "bg-cyan-500", proficiency: 94 },
         { name: "Next.js", icon: "▲", color: "bg-black", proficiency: 90 },
@@ -80,8 +85,8 @@ const Expertise: React.FC = () => {
       id: "backend",
       title: "Backend Development",
       icon: Database,
-      color: "from-slate-600 to-gray-700",
-      backgroundImage: "/images/background/backend.jpg",
+      color: "from-black/20 to-black/30",
+      //  backgroundImage: "/images/background/backend.jpg",
       technologies: [
         { name: "Node.js", icon: "🟢", color: "bg-green-600", proficiency: 91 },
         { name: "Python", icon: "🐍", color: "bg-yellow-500", proficiency: 95 },
@@ -100,9 +105,18 @@ const Expertise: React.FC = () => {
       id: "database",
       title: "Database Systems",
       icon: Database,
-      color: "from-slate-600 to-gray-700",
-      backgroundImage: "/images/background/database.jpg",
+      color: "from-black/20 to-black/30",
+      //  backgroundImage: "/images/background/database.jpg",
       technologies: [
+        {
+          name: "DynamoDB",
+          icon: "🧬",
+          color: "bg-indigo-700",
+          proficiency: 83,
+        },
+
+        // 📡 Distributed Systems
+
         { name: "MongoDB", icon: "🍃", color: "bg-green-500", proficiency: 90 },
         {
           name: "PostgreSQL",
@@ -111,18 +125,12 @@ const Expertise: React.FC = () => {
           proficiency: 88,
         },
         { name: "Redis", icon: "🔴", color: "bg-red-500", proficiency: 82 },
-        { name: "MySQL", icon: "🐬", color: "bg-orange-500", proficiency: 85 },
+        { name: "SQL", icon: "🐬", color: "bg-orange-500", proficiency: 85 },
         {
           name: "Firebase",
           icon: "🔥",
           color: "bg-yellow-500",
           proficiency: 87,
-        },
-        {
-          name: "Supabase",
-          icon: "⚡",
-          color: "bg-green-600",
-          proficiency: 84,
         },
       ],
     },
@@ -130,8 +138,8 @@ const Expertise: React.FC = () => {
       id: "cloud",
       title: "Cloud & DevOps",
       icon: Cloud,
-      color: "from-slate-600 to-gray-700",
-      backgroundImage: "/images/background/cloud.jpg",
+      color: "from-black/20 to-black/30",
+      // backgroundImage: "/images/background/cloud.jpg",
       technologies: [
         { name: "Docker", icon: "🐳", color: "bg-blue-500", proficiency: 89 },
         { name: "AWS", icon: "🌩️", color: "bg-orange-400", proficiency: 85 },
@@ -161,7 +169,7 @@ const Expertise: React.FC = () => {
   return (
     <section
       id="expertise"
-      className="py-20 bg-gradient-to-br from-slate-50 to-gray-100 dark:from-gray-900 dark:to-black"
+      className="py-20 bg-gradient-to-br from-black to-black text-white"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -196,7 +204,7 @@ const Expertise: React.FC = () => {
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
-                  backgroundImage: `url('${category.backgroundImage}')`,
+                  //backgroundImage: `url('${category.backgroundImage}')`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",

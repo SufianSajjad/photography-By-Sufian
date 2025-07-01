@@ -4,20 +4,20 @@ import { motion } from "framer-motion";
 const teamMembers = [
   {
     name: "Muhammad Abdullah",
-    position: "Founder",
+    position: "Co-Founder & Blockchain Lead",
     image: "/images/team/Abdullah.jpeg",
-    bio: "Visionary leader with 10+ years in tech innovation. Passionate about building solutions that transform businesses.",
-    skills: ["Strategic Planning", "Business Development", "Team Leadership"],
+    bio: "Blockchain specialist focused on building secure, scalable Web3 solutions. Leads smart contract architecture and decentralized systems development.",
+    skills: ["Solidity", "Smart Contracts", "Web3 Architecture"],
     linkedin: "#",
     twitter: "#",
   },
 
   {
     name: "Waleed Yaseen",
-    position: "Founder",
+    position: "Co-Founder & AI Lead",
     image: "/images/team/Waleed.png",
-    bio: "Machine learning expert with expertise in deep learning and natural language processing. Published researcher.",
-    skills: ["Machine Learning", "Python", "TensorFlow"],
+    bio: "Generative AI enthusiast with deep expertise in deep learning and model optimization. Drives AI innovation across product lines.",
+    skills: ["Generative AI", "Deep Learning", "Model Deployment"],
     linkedin: "#",
     twitter: "#",
   },
@@ -67,7 +67,7 @@ const Team = () => {
   return (
     <section
       id="team"
-      className="py-20 bg-gradient-to-br from-[#050C12] via-[#0A1520] to-[#050C12] text-white relative overflow-hidden"
+      className="py-20 bg-gradient-to-br from-black to-black text-white"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,_rgba(34,197,94,0.1),_transparent_50%)]"></div>
@@ -111,7 +111,7 @@ const Team = () => {
                   transition: { duration: 0.7, ease: "easeOut" },
                 },
               }}
-              whileHover={{ scale: 1.06, boxShadow: "0 0 32px 0 #06b6d4" }}
+              whileHover={{ scale: 1.06 }}
               className={`group relative bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 hover:border-green-400/50 transition-all duration-500 transform hover:-translate-y-2 ${
                 hoveredCard === idx
                   ? "scale-105 shadow-2xl shadow-green-400/20"
@@ -127,13 +127,14 @@ const Team = () => {
               <div className="relative z-10">
                 {/* Profile Image */}
                 <div className="relative mb-6">
-                  <div className="w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-gray-600 group-hover:border-green-400 transition-colors duration-300 animate-glow-icon">
+                  <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-gray-600 group-hover:border-green-400 transition-colors duration-300">
                     <img
                       src={member.image}
                       alt={member.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
+
                   {/* Online Status */}
                   <div className="absolute bottom-2 right-1/2 transform translate-x-1/2 translate-y-1/2">
                     <div className="w-4 h-4 bg-green-400 rounded-full border-2 border-gray-900 animate-pulse"></div>
@@ -171,7 +172,7 @@ const Team = () => {
                 <div className="flex justify-center gap-4">
                   <a
                     href={member.linkedin}
-                    className="w-10 h-10 bg-gray-800/60 border border-gray-600/50 rounded-full flex items-center justify-center hover:bg-blue-600 hover:border-blue-500 transition-colors duration-300 group/link animate-glow-icon"
+                    className="w-10 h-10 bg-gray-800/60 border border-gray-600/50 rounded-full flex items-center justify-center hover:bg-blue-600 hover:border-blue-500 transition-colors duration-300 group/link "
                   >
                     {/* LinkedIn SVG */}
                     <svg
@@ -184,7 +185,7 @@ const Team = () => {
                   </a>
                   <a
                     href={member.twitter}
-                    className="w-10 h-10 bg-gray-800/60 border border-gray-600/50 rounded-full flex items-center justify-center hover:bg-blue-400 hover:border-blue-400 transition-colors duration-300 group/link animate-glow-icon"
+                    className="w-10 h-10 bg-gray-800/60 border border-gray-600/50 rounded-full flex items-center justify-center hover:bg-blue-400 hover:border-blue-400 transition-colors duration-300 group/link "
                   >
                     {/* Twitter SVG */}
                     <svg
@@ -199,7 +200,7 @@ const Team = () => {
                     href={`mailto:${member.name
                       .toLowerCase()
                       .replace(" ", ".")}@company.com`}
-                    className="w-10 h-10 bg-gray-800/60 border border-gray-600/50 rounded-full flex items-center justify-center hover:bg-green-500 hover:border-green-500 transition-colors duration-300 group/link animate-glow-icon"
+                    className="w-10 h-10 bg-gray-800/60 border border-gray-600/50 rounded-full flex items-center justify-center hover:bg-green-500 hover:border-green-500 transition-colors duration-300 group/link "
                   >
                     {/* Email SVG */}
                     <svg

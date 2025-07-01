@@ -16,6 +16,10 @@ import {
   Target,
   Users,
   TrendingUp,
+  Code2,
+  CloudCog,
+  Blocks,
+  SlidersHorizontal,
 } from "lucide-react";
 
 import { motion, AnimatePresence } from "framer-motion";
@@ -27,9 +31,9 @@ const Services: React.FC = () => {
     {
       id: 0,
       title: "Blockchain Development",
-      icon: Zap,
+      icon: Blocks,
       shortDesc:
-        "Secure, decentralized blockchain solutions. Unlock new business models and global trust with Web3 expertise.",
+        "End-to-end blockchain solutions across all major chains — Ethereum, BNB, Polygon, Solana, Avalanche, and more. From smart contracts and dApps to Web3 integrations and crypto bots.",
       color: "from-blue-400 to-cyan-400",
       iconBg: "bg-gradient-to-br from-blue-600/60 to-cyan-400/40",
       borderColor: "border-blue-400/60",
@@ -39,7 +43,7 @@ const Services: React.FC = () => {
       title: "AI & Machine Learning",
       icon: Brain,
       shortDesc:
-        "Custom AI/ML for automation, analytics, and smarter decisions. Transform your data into real business value.",
+        "Custom AI and ML solutions to automate tasks, analyze data, and power intelligent decision-making.",
       color: "from-teal-400 to-cyan-400",
       iconBg: "bg-gradient-to-br from-teal-600/60 to-cyan-400/40",
       borderColor: "border-teal-400/60",
@@ -47,49 +51,49 @@ const Services: React.FC = () => {
     {
       id: 2,
       title: "Full Stack Development",
-      icon: Code,
+      icon: Code2,
       shortDesc:
-        "Robust, scalable web/mobile solutions. Modern architectures for seamless user experiences and rapid launch.",
+        "End-to-end web and mobile apps with modern frameworks and architectures for seamless user experiences.",
       color: "from-indigo-400 to-purple-400",
       iconBg: "bg-gradient-to-br from-indigo-600/60 to-purple-400/40",
       borderColor: "border-indigo-400/60",
     },
     {
       id: 3,
-      title: "Mobile Development",
-      icon: Smartphone,
+      title: "Systems Programming",
+      icon: Cpu,
       shortDesc:
-        "High-performance native/cross-platform apps. Beautiful design meets flawless functionality everywhere.",
+        "Performance-driven development using C, C++, Rust, and Go for embedded, desktop, and high-efficiency applications.",
       color: "from-green-400 to-emerald-400",
       iconBg: "bg-gradient-to-br from-green-600/60 to-emerald-400/40",
       borderColor: "border-green-400/60",
     },
     {
       id: 4,
-      title: "Cloud & DevOps",
-      icon: Database,
+      title: "Mobile App Development",
+      icon: Smartphone,
       shortDesc:
-        "Scale with secure cloud, CI/CD, and automation. Reliable, optimized infrastructure for growth.",
+        "Cross-platform and native mobile apps built with React Native, Next, Angular, or native stacks — fast, secure, and user-friendly.",
       color: "from-purple-400 to-pink-400",
       iconBg: "bg-gradient-to-br from-purple-600/60 to-pink-400/40",
       borderColor: "border-purple-400/60",
     },
     {
       id: 5,
-      title: "UI/UX Design",
-      icon: Globe,
+      title: "Cloud & DevOps",
+      icon: CloudCog,
       shortDesc:
-        "Stunning, intuitive UI/UX that delights users and drives conversions. Elevate your brand experience.",
+        "Scalable cloud infrastructure, CI/CD pipelines, Docker, Kubernetes, and automation for fast, reliable deployments.",
       color: "from-orange-400 to-red-400",
       iconBg: "bg-gradient-to-br from-orange-600/60 to-red-400/40",
       borderColor: "border-orange-400/60",
     },
     {
       id: 6,
-      title: "Cybersecurity Solutions",
-      icon: Shield,
+      title: "Custom Software Development",
+      icon: SlidersHorizontal,
       shortDesc:
-        "Protect your assets with advanced cybersecurity. Comprehensive strategies to safeguard your digital landscape.",
+        "Tailored software solutions across platforms — desktop, cloud, automation tools, integrations, and more.",
       color: "from-gray-400 to-slate-400",
       iconBg: "bg-gradient-to-br from-gray-600/60 to-slate-400/40",
       borderColor: "border-gray-400/60",
@@ -181,7 +185,7 @@ const Services: React.FC = () => {
                     <img
                       src="/images/background/cryptoCurrnecy.jpg"
                       alt="Service Background"
-                      className="w-full h-full object-cover scale-[1.03] blur-[1.5px] brightness-55 opacity-220"
+                      className="w-full h-full object-cover scale-[1.03] blur-[1.5px] brightness-95 opacity-60"
                       draggable={false}
                     />
                   </div>
@@ -190,16 +194,6 @@ const Services: React.FC = () => {
                   <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px] z-10" />
 
                   {/* Optional grid pattern overlay */}
-                  <div
-                    className="absolute inset-0 z-20 opacity-[0.04] pointer-events-none"
-                    style={{
-                      backgroundImage: `
-              linear-gradient(rgba(99, 102, 241, 0.06) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(99, 102, 241, 0.06) 1px, transparent 1px)
-            `,
-                      backgroundSize: "24px 24px",
-                    }}
-                  />
 
                   {/* Content */}
                   <div className="relative z-30">
@@ -240,12 +234,12 @@ const Services: React.FC = () => {
               const Icon = service.icon;
               // Array of different background images for variety
               const backgroundImages = [
-                "/images/background/cryptoCurrnecy.jpg",
-                "/images/background/cryptoCurrnecy.jpg",
-                "/images/background/cryptoCurrnecy.jpg",
-                "/images/background/cryptoCurrnecy.jpg",
-                "/images/background/cryptoCurrnecy.jpg",
-                "/images/background/cryptoCurrnecy.jpg",
+                "/images/background/aimachinelearningmanandrobot.jpg",
+                "/images/background/fullStack.jpg",
+                "/images/background/systemPrograming2.jpg",
+                "/images/background/mobiledevelopment.jpg",
+                "/images/background/CloudAndDevops.jpg",
+                "/images/background/customersoftwaredevelopment.jpg",
               ];
               const bgImage = backgroundImages[idx % backgroundImages.length];
 
@@ -257,36 +251,17 @@ const Services: React.FC = () => {
                 >
                   {/* Background Image with Light Blur */}
                   <div
-                    className="absolute inset-0 pointer-events-none"
+                    className="absolute inset-0 pointer-events-none z-0"
                     style={{
                       backgroundImage: `url('${bgImage}')`,
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                       backgroundRepeat: "no-repeat",
-                      filter: "blur(1px)",
-                      transform: "scale(1.05)",
+                      filter: "blur(1px) brightness(0.33)", // ⬅️ darker + blur
+                      transform: "scale(1.1)", // ⬅️ to prevent edge clipping from blur
                     }}
                   />
 
-                  {/* Professional Block Color Overlay */}
-                  <div className="absolute inset-0 bg-slate-900/35 z-10" />
-
-                  {/* Subtle Glass Effect */}
-                  <div className="absolute inset-0 bg-white/5 z-20" />
-
-                  {/* Minimal Grid Pattern */}
-                  <div
-                    className="absolute inset-0 opacity-8 pointer-events-none z-20"
-                    style={{
-                      backgroundImage: `
-              linear-gradient(rgba(99, 102, 241, 0.06) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(99, 102, 241, 0.06) 1px, transparent 1px)
-            `,
-                      backgroundSize: "20px 20px",
-                    }}
-                  />
-
-                  {/* Professional Icon Container */}
                   <div
                     className={`relative z-30 flex items-center justify-center w-14 h-14 mx-auto mb-4 rounded-xl ${service.iconBg} shadow-md backdrop-blur-sm border border-white/20`}
                   >
@@ -298,7 +273,7 @@ const Services: React.FC = () => {
                     <h3 className="text-lg font-semibold text-white mb-2 tracking-tight drop-shadow-md">
                       {service.title}
                     </h3>
-                    <p className="text-gray-200 text-sm leading-relaxed min-h-[48px] drop-shadow-sm">
+                    <p className="text-gray-100 text-sm leading-relaxed min-h-[48px] drop-shadow-sm">
                       {service.shortDesc}
                     </p>
                   </div>
