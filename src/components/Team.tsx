@@ -50,6 +50,15 @@ const teamMembers = [
     linkedin: "#",
     twitter: "#",
   },
+  {
+    name: "Abdullah",
+    position: "Full Stack Developer",
+    image: "/images/team/Abdullah.jpeg",
+    bio: "Versatile developer with expertise in modern web technologies. Passionate about clean code and scalable solutions.",
+    skills: ["React", "Node.js", "Cloud Architecture"],
+    linkedin: "#",
+    twitter: "#",
+  },
 ];
 
 const Team = () => {
@@ -67,12 +76,6 @@ const Team = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-green-400/20 to-blue-500/20 backdrop-blur-sm border border-green-400/30 rounded-full px-4 py-2 mb-4">
-            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-            <p className="text-sm text-green-400 uppercase tracking-wider font-medium">
-              Our Experts
-            </p>
-          </div>
           <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent mb-4">
             Meet Our Team
           </h2>
@@ -102,11 +105,17 @@ const Team = () => {
               key={idx}
               variants={{
                 hidden: { opacity: 0, y: 40 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.7, ease: "easeOut" },
+                },
               }}
-              whileHover={{ scale: 1.06, boxShadow: '0 0 32px 0 #06b6d4' }}
+              whileHover={{ scale: 1.06, boxShadow: "0 0 32px 0 #06b6d4" }}
               className={`group relative bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 hover:border-green-400/50 transition-all duration-500 transform hover:-translate-y-2 ${
-                hoveredCard === idx ? "scale-105 shadow-2xl shadow-green-400/20" : ""
+                hoveredCard === idx
+                  ? "scale-105 shadow-2xl shadow-green-400/20"
+                  : ""
               }`}
               onMouseEnter={() => setHoveredCard(idx)}
               onMouseLeave={() => setHoveredCard(null)}
@@ -217,7 +226,7 @@ const Team = () => {
         </motion.div>
 
         {/* Call to Action */}
-        <div className="text-center">
+        {/* <div className="text-center">
           <div className="inline-flex flex-col sm:flex-row gap-4">
             <a
               href="#contact"
@@ -258,7 +267,7 @@ const Team = () => {
               </svg>
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

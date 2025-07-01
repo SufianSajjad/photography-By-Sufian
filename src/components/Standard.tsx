@@ -35,7 +35,7 @@ function useAnimatedCounter(target: number | string, duration = 1.5) {
   const [value, setValue] = React.useState(0);
   React.useEffect(() => {
     let start = 0;
-    let end = typeof target === 'string' ? parseFloat(target) : target;
+    let end = typeof target === "string" ? parseFloat(target) : target;
     if (isNaN(end)) {
       setValue(0);
       return;
@@ -56,9 +56,9 @@ function useAnimatedCounter(target: number | string, duration = 1.5) {
 
 // StatCard component to use the hook correctly
 function StatCard({ item }: { item: StandardItem }) {
-  const isPercent = typeof item.stat === 'string' && item.stat.includes('%');
-  const isPlus = typeof item.stat === 'string' && item.stat.includes('+');
-  const statNum = parseInt(item.stat.replace(/[^0-9]/g, ''));
+  const isPercent = typeof item.stat === "string" && item.stat.includes("%");
+  const isPlus = typeof item.stat === "string" && item.stat.includes("+");
+  const statNum = parseInt(item.stat.replace(/[^0-9]/g, ""));
   const animatedValue = useAnimatedCounter(statNum);
   return (
     <motion.div
@@ -97,9 +97,6 @@ const Standard: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h3 className="text-sm uppercase text-green-400 font-semibold tracking-widest">
-            Our Quality
-          </h3>
           <h2 className="text-4xl lg:text-5xl font-bold mt-2">
             The TECHVERSA Standard
           </h2>

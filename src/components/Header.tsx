@@ -21,7 +21,8 @@ const Header: React.FC = () => {
     const section = document.querySelector(href);
     if (section) {
       const yOffset = -80;
-      const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      const y =
+        section.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
     setIsMenuOpen(false);
@@ -51,16 +52,16 @@ const Header: React.FC = () => {
         <div className="hidden lg:flex items-center justify-between py-4">
           {/* Logo */}
           <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
             className="flex-shrink-0"
           >
             <button
               onClick={scrollToTop}
-              className="flex items-center space-x-3 focus:outline-none group"
+              className="flex items-center space-x-2 focus:outline-none"
             >
-              <div className="px-4 py-2 bg-gradient-to-r from-primary-600 to-accent-500 rounded-lg shadow-lg">
-                <span className="text-white font-bold tracking-wider text-lg">
+              <div className="px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-md transition-colors duration-200 shadow-sm">
+                <span className="text-white font-semibold text-base tracking-wide">
                   TECHVERSA
                 </span>
               </div>
@@ -78,7 +79,7 @@ const Header: React.FC = () => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-all duration-200 relative group"
+                className="text-lg md:text-lg text-gray-800 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400  transition-all duration-200 relative group"
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-600 to-accent-500 transition-all duration-300 group-hover:w-full"></span>
@@ -94,10 +95,10 @@ const Header: React.FC = () => {
             className="flex-shrink-0"
           >
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               onClick={() => scrollToSection("#contact")}
-              className="px-6 py-3 rounded-lg bg-gradient-to-r from-primary-600 to-accent-500 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+              className="px-4 py-2 rounded-md bg-gray-800 text-white text-sm font-medium hover:bg-gray-700 transition-colors duration-200"
             >
               Contact Us
             </motion.button>
@@ -180,7 +181,7 @@ const Header: React.FC = () => {
                     {item.name}
                   </motion.button>
                 ))}
-                
+
                 {/* Mobile Contact Section */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -196,7 +197,7 @@ const Header: React.FC = () => {
                   >
                     Contact Us
                   </motion.button>
-                  
+
                   {/* Quick Contact Info */}
                   <div className="mt-4 space-y-2">
                     <div className="flex items-center gap-3 px-4 py-2 text-sm text-gray-600 dark:text-gray-400">

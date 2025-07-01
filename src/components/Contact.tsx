@@ -1,16 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock, 
-  Linkedin, 
-  Twitter, 
-  Facebook, 
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Linkedin,
+  Twitter,
+  Facebook,
   Instagram,
   MessageCircle,
-  ExternalLink
+  ExternalLink,
+  Building2,
+  Users,
 } from "lucide-react";
 
 const Contact = () => {
@@ -20,28 +22,31 @@ const Contact = () => {
       title: "Phone",
       details: ["+92 321 1234567", "+92 42 1234567"],
       link: "tel:+923211234567",
-      color: "from-green-500 to-emerald-500",
+      color: "from-slate-600 to-slate-700",
     },
     {
       icon: Mail,
       title: "Email",
       details: ["info@techversa.com", "support@techversa.com"],
       link: "mailto:info@techversa.com",
-      color: "from-blue-500 to-cyan-500",
+      color: "from-blue-600 to-blue-700",
     },
     {
       icon: MapPin,
       title: "Office",
       details: ["Bahria Town, Lahore", "Punjab, Pakistan"],
       link: "https://maps.google.com/?q=Bahria+Town+Lahore",
-      color: "from-purple-500 to-pink-500",
+      color: "from-gray-600 to-gray-700",
     },
     {
       icon: Clock,
       title: "Business Hours",
-      details: ["Mon - Fri: 9:00 AM - 6:00 PM", "Sat: 10:00 AM - 4:00 PM"],
+      details: [
+        "Monday - Friday: 9:00 AM - 6:00 PM",
+        "Saturday: 10:00 AM - 4:00 PM",
+      ],
       link: null,
-      color: "from-orange-500 to-red-500",
+      color: "from-emerald-600 to-emerald-700",
     },
   ];
 
@@ -50,31 +55,31 @@ const Contact = () => {
       name: "LinkedIn",
       icon: Linkedin,
       url: "https://linkedin.com/company/techversa",
-      bgColor: "from-blue-500 to-blue-600",
+      bgColor: "from-blue-600 to-blue-700",
     },
     {
       name: "Twitter",
       icon: Twitter,
       url: "https://twitter.com/techversa",
-      bgColor: "from-blue-400 to-blue-500",
+      bgColor: "from-slate-600 to-slate-700",
     },
     {
       name: "Facebook",
       icon: Facebook,
       url: "https://facebook.com/techversa",
-      bgColor: "from-blue-600 to-blue-700",
+      bgColor: "from-blue-700 to-blue-800",
     },
     {
       name: "Instagram",
       icon: Instagram,
       url: "https://instagram.com/techversa",
-      bgColor: "from-purple-500 to-pink-500",
+      bgColor: "from-gray-600 to-gray-700",
     },
     {
       name: "WhatsApp",
       icon: MessageCircle,
       url: "https://wa.me/923211234567",
-      bgColor: "from-green-500 to-green-600",
+      bgColor: "from-green-600 to-green-700",
     },
   ];
 
@@ -83,19 +88,19 @@ const Contact = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
+        staggerChildren: 0.08,
+        delayChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 15 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.5,
         ease: "easeOut",
       },
     },
@@ -104,32 +109,27 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="py-20 bg-gradient-to-br from-gray-50 via-white to-primary-50 dark:from-gray-900 dark:via-gray-800 dark:to-primary-900 relative overflow-hidden"
+      className="py-20 bg-gradient-to-br from-gray-900 to-black text-white"
     >
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,_rgba(34,197,94,0.05),_transparent_50%)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,_rgba(59,130,246,0.05),_transparent_50%)]"></div>
+      {/* Subtle Background Pattern */}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary-100 to-accent-100 dark:from-primary-900/30 dark:to-accent-900/30 backdrop-blur-sm border border-primary-200 dark:border-primary-700 rounded-full px-4 py-2 mb-6">
-            <div className="w-2 h-2 bg-primary-500 rounded-full animate-pulse"></div>
-            <p className="text-sm text-primary-600 dark:text-primary-400 uppercase tracking-wider font-medium">
-              Get In Touch
-            </p>
-          </div>
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Let's <span className="gradient-text">Connect</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
+            Get in{" "}
+            <span className="text-blue-600 dark:text-blue-400">Touch</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Ready to transform your business? Reach out to us and let's discuss how we can help you achieve your goals.
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            We're here to help you achieve your business objectives. Contact our
+            team of experts to discuss your project requirements and explore how
+            we can add value to your organization.
           </p>
         </motion.div>
 
@@ -138,44 +138,53 @@ const Contact = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid lg:grid-cols-2 gap-12 lg:gap-16"
+          className="grid lg:grid-cols-3 gap-8"
         >
-          {/* Contact Information */}
-          <motion.div variants={itemVariants} className="space-y-8">
-            <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700">
-              <h3 className="text-2xl font-bold mb-8 text-gray-900 dark:text-white">
-                Contact Information
-              </h3>
-
-              <div className="space-y-6">
-                {contactInfo.map((info, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: idx * 0.1 }}
-                    viewport={{ once: true }}
-                    className="flex items-start gap-4 group"
-                  >
-                    <div className={`w-12 h-12 bg-gradient-to-br ${info.color} rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+          {/* Contact Information Cards */}
+          <motion.div variants={itemVariants} className="lg:col-span-2">
+            <div className="grid md:grid-cols-2 gap-6">
+              {contactInfo.map((info, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  viewport={{ once: true }}
+                  className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow duration-300"
+                >
+                  <div className="flex items-start gap-4">
+                    <div
+                      className={`w-12 h-12 bg-gradient-to-br ${info.color} rounded-lg flex items-center justify-center text-white shadow-sm`}
+                    >
                       <info.icon className="w-6 h-6" />
                     </div>
                     <div className="flex-1">
-                      <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+                      <h4 className="font-semibold text-gray-900 dark:text-white mb-3 text-lg">
                         {info.title}
                       </h4>
                       {info.details.map((detail, detailIdx) => (
-                        <p key={detailIdx} className="text-gray-600 dark:text-gray-300 text-sm mb-1">
+                        <p
+                          key={detailIdx}
+                          className="text-gray-600 dark:text-gray-400 mb-1 leading-relaxed"
+                        >
                           {info.link ? (
                             <a
                               href={info.link}
-                              className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 flex items-center gap-2 group/link"
-                              target={info.link.startsWith('http') ? "_blank" : undefined}
-                              rel={info.link.startsWith('http') ? "noopener noreferrer" : undefined}
+                              className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 flex items-center gap-2 group/link"
+                              target={
+                                info.link.startsWith("http")
+                                  ? "_blank"
+                                  : undefined
+                              }
+                              rel={
+                                info.link.startsWith("http")
+                                  ? "noopener noreferrer"
+                                  : undefined
+                              }
                             >
                               {detail}
-                              {info.link.startsWith('http') && (
-                                <ExternalLink className="w-3 h-3 opacity-0 group-hover/link:opacity-100 transition-opacity duration-300" />
+                              {info.link.startsWith("http") && (
+                                <ExternalLink className="w-3 h-3 opacity-0 group-hover/link:opacity-100 transition-opacity duration-200" />
                               )}
                             </a>
                           ) : (
@@ -184,24 +193,30 @@ const Contact = () => {
                         </p>
                       ))}
                     </div>
-                  </motion.div>
-                ))}
-              </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
 
-            {/* Google Maps Embed */}
+            {/* Google Maps */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              className="bg-white dark:bg-gray-800 rounded-2xl p-0 shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden"
+              className="mt-8 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden"
             >
+              <div className="p-4 border-b border-gray-200 dark:border-gray-700">
+                <h4 className="font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                  Our Location
+                </h4>
+              </div>
               <iframe
                 title="TechVersa Office Location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13613.073232063873!2d74.217932!3d31.400000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391904b2b2b2b2b2%3A0x1234567890abcdef!2sBahria%20Town%2C%20Lahore!5e0!3m2!1sen!2s!4v1680000000000!5m2!1sen!2s"
                 width="100%"
-                height="220"
+                height="280"
                 style={{ border: 0 }}
                 allowFullScreen={true}
                 loading="lazy"
@@ -210,39 +225,113 @@ const Contact = () => {
             </motion.div>
           </motion.div>
 
-          {/* Social Media Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700"
-          >
-            <h4 className="font-bold text-gray-900 dark:text-white mb-6 text-xl">
-              Follow Us
-            </h4>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-              {socialLinks.map((social, idx) => (
-                <motion.a
-                  key={idx}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, delay: idx * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`group flex items-center gap-3 p-4 bg-gradient-to-r ${social.bgColor} rounded-xl text-white shadow-lg hover:shadow-xl transition-all duration-300`}
-                  title={social.name}
-                >
-                  <social.icon className="w-5 h-5" />
-                  <span className="font-medium text-sm">{social.name}</span>
-                </motion.a>
-              ))}
+          {/* Professional Info & Social Links */}
+          <motion.div variants={itemVariants} className="space-y-6">
+            {/* Company Info */}
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+              <div className="flex items-center gap-3 mb-4">
+                <Users className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                <h4 className="font-semibold text-gray-900 dark:text-white text-lg">
+                  Why Choose Us
+                </h4>
+              </div>
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">
+                    Expert team with 10+ years of experience
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">
+                    24/7 customer support and maintenance
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">
+                    Proven track record with 200+ projects
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">
+                    Tailored solutions for your business needs
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Social Media */}
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+              <h4 className="font-semibold text-gray-900 dark:text-white mb-4 text-lg">
+                Connect With Us
+              </h4>
+              <div className="grid grid-cols-2 gap-3">
+                {socialLinks.map((social, idx) => (
+                  <motion.a
+                    key={idx}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3, delay: idx * 0.05 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className={`group flex items-center gap-2 p-3 bg-gradient-to-r ${social.bgColor} rounded-lg text-white shadow-sm hover:shadow-md transition-all duration-200`}
+                    title={`Follow us on ${social.name}`}
+                  >
+                    <social.icon className="w-4 h-4" />
+                    <span className="font-medium text-sm">{social.name}</span>
+                  </motion.a>
+                ))}
+              </div>
+              <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+                <p className="text-xs text-gray-500 dark:text-gray-500">
+                  Follow us for updates on technology trends, company news, and
+                  industry insights.
+                </p>
+              </div>
             </div>
           </motion.div>
+        </motion.div>
+
+        {/* Professional CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="mt-16 text-center"
+        >
+          <div className="bg-gradient-to-r from-blue-50 to-gray-50 dark:from-gray-800 dark:to-gray-700 rounded-lg p-8 border border-gray-200 dark:border-gray-600">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              Ready to Start Your Project?
+            </h3>
+            <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
+              Schedule a consultation with our team to discuss your requirements
+              and receive a customized solution proposal.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="mailto:info@techversa.com"
+                className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200 shadow-sm"
+              >
+                <Mail className="w-4 h-4 mr-2" />
+                Send Email
+              </a>
+              <a
+                href="tel:+923211234567"
+                className="inline-flex items-center justify-center px-6 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-semibold rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200"
+              >
+                <Phone className="w-4 h-4 mr-2" />
+                Call Now
+              </a>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
