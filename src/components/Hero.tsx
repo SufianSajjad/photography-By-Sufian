@@ -1,5 +1,6 @@
 import React from "react";
 import { Zap, Shield, Users } from "lucide-react";
+import { useCountUp } from "../hooks/useCountUp";
 
 const Hero: React.FC = () => {
   const features = [
@@ -9,11 +10,30 @@ const Hero: React.FC = () => {
   ];
 
   const stats = [
-    { number: "15+", label: "Projects Completed" },
-    { number: "95%", label: "Client Satisfaction" },
-    { number: "10+", label: "Happy Clients" },
-    { number: "3+", label: "Years Experience" },
+    { number: 15, label: "Projects Completed", suffix: "+" },
+    { number: 95, label: "Client Satisfaction", suffix: "%" },
+    { number: 10, label: "Happy Clients", suffix: "+" },
+    { number: 3, label: "Years Experience", suffix: "+" },
   ];
+
+  // Animated counter component
+  const AnimatedStat: React.FC<{ stat: typeof stats[0]; index: number }> = ({ stat, index }) => {
+    const { count, elementRef } = useCountUp({
+      end: stat.number,
+      duration: 2000 + index * 200, // Stagger animations
+      startOnView: true,
+      threshold: 0.1, // Lower threshold for earlier triggering
+    });
+
+    return (
+      <div ref={elementRef} className="text-center">
+        <div className="text-3xl md:text-4xl font-bold text-white mb-2">
+          {count}{stat.suffix}
+        </div>
+        <div className="text-sm text-gray-400">{stat.label}</div>
+      </div>
+    );
+  };
 
   return (
     <section
@@ -71,15 +91,10 @@ const Hero: React.FC = () => {
           </button>
         </div>
 
-        {/* Stats */}
+        {/* Animated Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto fade-in-slow">
           {stats.map((stat, idx) => (
-            <div key={idx} className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">
-                {stat.number}
-              </div>
-              <div className="text-sm text-gray-400">{stat.label}</div>
-            </div>
+            <AnimatedStat key={idx} stat={stat} index={idx} />
           ))}
         </div>
       </div>

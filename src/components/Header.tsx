@@ -1,15 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Menu, X, Phone, Mail } from "lucide-react";
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
+
+  // Throttled scroll handler for better performance
+  const handleScroll = useCallback(() => {
+    if (scrollTimeout.current) {
+      clearTimeout(scrollTimeout.current);
+    }
+    
+    scrollTimeout.current = setTimeout(() => {
+      setIsScrolled(window.scrollY > 50);
+    }, 10);
+  }, []);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    // Add passive event listener for better performance
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current);
+      }
+    };
+  }, [handleScroll]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -38,9 +55,19 @@ const Header: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/95 dark:bg-gray-900/95 shadow-lg backdrop-blur-md border-b border-gray-200 dark:border-gray-700"
+          ? "shadow-lg border-b border-gray-700/50"
           : "bg-transparent"
       }`}
+      style={{
+        background: isScrolled 
+          ? "linear-gradient(135deg, rgba(17, 24, 39, 0.95) 0%, rgba(31, 41, 55, 0.95) 100%)"
+          : "transparent",
+        backdropFilter: isScrolled ? "blur(20px)" : "none",
+        WebkitBackdropFilter: isScrolled ? "blur(20px)" : "none",
+        boxShadow: isScrolled 
+          ? "0 4px 20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(59, 130, 246, 0.1) inset"
+          : "none",
+      }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Desktop Navigation */}
@@ -48,10 +75,14 @@ const Header: React.FC = () => {
           {/* Logo */}
           <button
             onClick={scrollToTop}
-            className="flex items-center space-x-2 focus:outline-none"
+            className="flex items-center space-x-2 focus:outline-none group"
           >
-            <div className="px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-md transition">
-              <span className="text-white font-semibold text-base tracking-wide">
+            <div className={`px-4 py-2 rounded-md transition-all duration-300 ${
+              isScrolled 
+                ? "bg-gray-800 hover:bg-gray-700 border border-gray-600/50" 
+                : "bg-gray-800/80 hover:bg-gray-700/90 backdrop-blur-sm"
+            }`}>
+              <span className="text-white font-semibold text-base tracking-wide group-hover:scale-105 transition-transform duration-200">
                 TECHVERSA
               </span>
             </div>
@@ -63,10 +94,18 @@ const Header: React.FC = () => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="text-lg text-gray-800 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 relative group transition"
+                className={`text-lg font-medium relative group transition-all duration-300 ${
+                  isScrolled
+                    ? "text-gray-100 hover:text-blue-400"
+                    : "text-white/90 hover:text-white"
+                }`}
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-600 to-accent-500 transition-all duration-300 group-hover:w-full"></span>
+                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
+                  isScrolled
+                    ? "bg-gradient-to-r from-blue-400 to-cyan-400"
+                    : "bg-gradient-to-r from-white to-cyan-400"
+                }`}></span>
               </button>
             ))}
           </nav>
@@ -74,7 +113,11 @@ const Header: React.FC = () => {
           {/* Contact Button */}
           <button
             onClick={() => scrollToSection("#contact")}
-            className="px-4 py-2 rounded-md bg-gray-800 text-white text-sm font-medium hover:bg-gray-700 transition"
+            className={`px-6 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg ${
+              isScrolled
+                ? "bg-blue-600 text-white hover:bg-blue-700 border border-blue-500/50"
+                : "bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm border border-white/20"
+            }`}
           >
             Contact Us
           </button>
@@ -86,7 +129,11 @@ const Header: React.FC = () => {
             onClick={scrollToTop}
             className="flex items-center space-x-2 focus:outline-none"
           >
-            <div className="px-3 py-1.5 bg-gradient-to-r from-primary-600 to-accent-500 rounded-lg shadow-lg">
+            <div className={`px-3 py-1.5 rounded-lg shadow-lg transition-all duration-300 ${
+              isScrolled
+                ? "bg-gradient-to-r from-blue-600 to-cyan-500 border border-blue-500/50"
+                : "bg-gradient-to-r from-blue-600/80 to-cyan-500/80 backdrop-blur-sm"
+            }`}>
               <span className="text-white font-bold tracking-wider text-sm">
                 TECHVERSA
               </span>
@@ -95,45 +142,54 @@ const Header: React.FC = () => {
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+            className={`p-2 rounded-lg transition-all duration-300 ${
+              isScrolled
+                ? "bg-gray-700 hover:bg-gray-600 border border-gray-600/50"
+                : "bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20"
+            }`}
           >
             {isMenuOpen ? (
-              <X className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+              <X className="w-6 h-6 text-white" />
             ) : (
-              <Menu className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+              <Menu className="w-6 h-6 text-white" />
             )}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden bg-white dark:bg-gray-900 shadow-xl rounded-b-lg border-t border-gray-200 dark:border-gray-700 overflow-hidden">
+          <div 
+            className="lg:hidden shadow-xl rounded-b-lg border-t border-gray-600/50 overflow-hidden backdrop-blur-md"
+            style={{
+              background: "linear-gradient(135deg, rgba(17, 24, 39, 0.98) 0%, rgba(31, 41, 55, 0.98) 100%)",
+            }}
+          >
             <div className="px-4 py-6 space-y-2">
               {navItems.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="w-full text-left px-4 py-3 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary-600 dark:hover:text-primary-400 transition font-medium"
+                  className="w-full text-left px-4 py-3 rounded-lg text-gray-200 hover:bg-gray-700/50 hover:text-blue-400 transition-all duration-200 font-medium"
                 >
                   {item.name}
                 </button>
               ))}
 
-              <div className="pt-4 mt-4 border-t border-gray-200 dark:border-gray-700">
+              <div className="pt-4 mt-4 border-t border-gray-600/50">
                 <button
                   onClick={() => scrollToSection("#contact")}
-                  className="w-full px-4 py-3 rounded-lg bg-gradient-to-r from-primary-600 to-accent-500 text-white font-semibold shadow-lg transition"
+                  className="w-full px-4 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold shadow-lg transition-transform duration-200 hover:scale-105"
                 >
                   Contact Us
                 </button>
 
                 <div className="mt-4 space-y-2">
-                  <div className="flex items-center gap-3 px-4 py-2 text-sm text-gray-600 dark:text-gray-400">
-                    <Phone className="w-4 h-4 text-primary-600 dark:text-primary-400" />
+                  <div className="flex items-center gap-3 px-4 py-2 text-sm text-gray-300">
+                    <Phone className="w-4 h-4 text-blue-400" />
                     <span>+92 321 1234567</span>
                   </div>
-                  <div className="flex items-center gap-3 px-4 py-2 text-sm text-gray-600 dark:text-gray-400">
-                    <Mail className="w-4 h-4 text-primary-600 dark:text-primary-400" />
+                  <div className="flex items-center gap-3 px-4 py-2 text-sm text-gray-300">
+                    <Mail className="w-4 h-4 text-blue-400" />
                     <span>info@techversa.com</span>
                   </div>
                 </div>

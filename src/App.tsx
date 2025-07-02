@@ -13,6 +13,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 import ThemeProvider from "./context/ThemeContext";
 
 // Lazy-loaded sections
@@ -37,7 +38,7 @@ const Contact = lazy(
 
 // Spinner
 const LoadingSpinner = memo(() => (
-  <div className="flex items-center justify-center p-8 min-h-[200px]">
+  <div className="flex items-center justify-center p-8 min-h-[400px]">
     <div className="relative">
       <div className="w-8 h-8 border-2 border-blue-400 border-t-transparent rounded-full animate-spin"></div>
       <div className="absolute inset-0 w-8 h-8 border-2 border-cyan-400/30 rounded-full"></div>
@@ -47,7 +48,7 @@ const LoadingSpinner = memo(() => (
 ));
 LoadingSpinner.displayName = "LoadingSpinner";
 
-// ✅ Fixed useIntersectionObserver hook
+// Optimized intersection observer hook
 const useIntersectionObserver = (threshold = 0.1) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -62,7 +63,10 @@ const useIntersectionObserver = (threshold = 0.1) => {
           observer.unobserve(entry.target);
         }
       },
-      { threshold, rootMargin: "50px" }
+      { 
+        threshold, 
+        rootMargin: "100px 0px" // Preload content earlier
+      }
     );
 
     observer.observe(ref.current);
@@ -80,27 +84,33 @@ type LazySectionProps = {
   Component: React.ComponentType<any>;
   fallback?: React.ReactNode;
   className?: string;
+  minHeight?: string;
   [key: string]: any;
 };
 
-// LazySection component
+// Optimized LazySection component
 const LazySection = memo(
   ({
     Component,
     fallback = <LoadingSpinner />,
     className = "",
+    minHeight = "min-h-[400px]",
     ...props
   }: LazySectionProps) => {
     const [ref, isVisible] = useIntersectionObserver();
 
     return (
-      <div ref={ref} className={className}>
+      <div 
+        ref={ref} 
+        className={className}
+        style={{ contain: 'layout style' }}
+      >
         {isVisible ? (
           <Suspense fallback={fallback}>
             <Component {...props} />
           </Suspense>
         ) : (
-          <div className="min-h-[200px]" />
+          <div className={`${minHeight} bg-transparent`} />
         )}
       </div>
     );
@@ -110,7 +120,7 @@ LazySection.displayName = "LazySection";
 
 // Background
 const AppBackground = memo(() => (
-  <div className="fixed inset-0 -z-10">
+  <div className="fixed inset-0 -z-10" style={{ contain: 'strict' }}>
     <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950" />
     <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,_rgba(59,130,246,0.03),_transparent_50%)]" />
     <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,_rgba(34,197,94,0.03),_transparent_50%)]" />
@@ -123,19 +133,23 @@ const App = memo(() => {
   const sections = useMemo(
     () => [
       { Component: Hero, key: "hero", priority: true },
-      { Component: Services, key: "services" },
-      { Component: Expertise, key: "expertise" },
-      { Component: Standard, key: "standard" },
-      { Component: Team, key: "team" },
-      { Component: Contact, key: "contact" },
+      { Component: Services, key: "services", minHeight: "min-h-[600px]" },
+      { Component: Expertise, key: "expertise", minHeight: "min-h-[500px]" },
+      { Component: Standard, key: "standard", minHeight: "min-h-[400px]" },
+      { Component: Team, key: "team", minHeight: "min-h-[500px]" },
+      { Component: Contact, key: "contact", minHeight: "min-h-[400px]" },
     ],
     []
   );
 
+  // Preload critical sections
   useEffect(() => {
     const timer = setTimeout(() => {
-      import("./components/Services");
-    }, 2000);
+      Promise.all([
+        import("./components/Services"),
+        import("./components/Expertise")
+      ]);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -171,15 +185,17 @@ const App = memo(() => {
           <Suspense fallback={<LoadingSpinner />}>
             <Hero />
           </Suspense>
-          {sections.slice(1).map(({ Component, key }) => (
+          {sections.slice(1).map(({ Component, key, minHeight }) => (
             <LazySection
               key={key}
               Component={Component}
               fallback={<LoadingSpinner />}
+              minHeight={minHeight}
             />
           ))}
         </main>
         <Footer />
+        <ScrollToTop />
       </div>
     </ThemeProvider>
   );

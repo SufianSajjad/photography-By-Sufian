@@ -2,31 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  body {
-    @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300;
-  }
+/* Performance optimizations */
+html {
+  scroll-behavior: smooth;
+}
 
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Improve scrolling performance */
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300;
+}
 
-  ::-webkit-scrollbar-track {
-    @apply bg-gray-100 dark:bg-gray-800;
-  }
+/* Hardware acceleration for better performance */
+* {
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+}
 
-  ::-webkit-scrollbar-thumb {
-    @apply bg-primary-500 rounded-full;
-  }
+/* Optimize images for better performance */
+img {
+  will-change: transform;
+  backface-visibility: hidden;
+}
 
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary-600;
-  }
+/* Reduce layout thrashing */
+.service-card {
+  contain: layout style paint;
+  will-change: transform, opacity;
+}
+
+/* Smooth transitions */
+.transition-optimized {
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary-500 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary-600;
 }
 
 @layer components {
