@@ -4,7 +4,7 @@ const teamMembers = [
   {
     name: "Muhammad Abdullah",
     position: "Co-Founder & Blockchain Lead",
-    image: "/images/team/Abdullah.jpeg",
+    image: "/images/team/Abdullah3.jpeg",
     bio: "Blockchain specialist focused on building secure, scalable Web3 solutions. Leads smart contract architecture and decentralized systems development.",
     skills: ["Solidity", "Smart Contracts", "Web3 Architecture"],
     linkedin: "#",

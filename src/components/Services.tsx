@@ -149,91 +149,55 @@ const Services: React.FC = () => {
 
   // Optimized service card component to prevent recreation
   const ServiceCard = React.memo(
-    ({ service, isFirst = false }: { service: any; isFirst?: boolean }) => {
+    ({
+      service,
+      isFirst = false,
+    }: {
+      service: {
+        icon: React.ElementType;
+        title: string;
+        shortDesc: string;
+        bgImage: string;
+        borderColor: string;
+        iconBg: string;
+      };
+      isFirst?: boolean;
+    }) => {
       const Icon = service.icon;
 
-      if (isFirst) {
-        return (
-          <div
-            className={`relative group rounded-2xl border ${service.borderColor} shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:border-blue-400/60 mx-auto`}
-            style={{
-              minHeight: 280,
-              maxWidth: "800px",
-              padding: "2rem 1.5rem",
-            }}
-          >
-            {/* Optimized background image with responsive srcset */}
-            <div className="absolute inset-0 z-0">
-              <picture>
-                <img
-                  src={service.bgImage}
-                  alt={`${service.title} Background`}
-                  className="w-full h-full object-cover scale-[1.03] blur-[1.5px] brightness-95 opacity-60"
-                  loading="lazy"
-                  decoding="async"
-                  draggable={false}
-                />
-              </picture>
-            </div>
-
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px] z-10" />
-
-            {/* Content */}
-            <div className="relative z-30">
-              <div
-                className={`flex items-center justify-center w-16 h-16 mx-auto mb-6 rounded-xl ${service.iconBg} shadow-lg backdrop-blur-sm border border-white/20`}
-              >
-                <Icon size={32} className="text-white drop-shadow-md" />
-              </div>
-
-              <div className="px-6 text-center">
-                <h3 className="text-xl font-semibold text-white mb-3 tracking-tight drop-shadow">
-                  {service.title}
-                </h3>
-                <p className="text-gray-100 text-base leading-relaxed max-w-lg mx-auto drop-shadow-sm">
-                  {service.shortDesc}
-                </p>
-              </div>
-            </div>
-
-            <div className="absolute inset-0 rounded-2xl pointer-events-none border border-transparent group-hover:border-blue-400/60 transition-all duration-500 z-30" />
-          </div>
-        );
-      }
+      const cardStyles = isFirst
+        ? "max-w-3xl mx-auto px-6 py-8 min-h-[280px]"
+        : "px-4 py-6 min-h-[260px]";
 
       return (
         <div
-          className={`relative group rounded-2xl border ${service.borderColor} shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:border-blue-400/60`}
-          style={{ minHeight: 260, padding: "1.75rem 1.5rem" }}
+          className={`relative rounded-2xl border ${service.borderColor} shadow-md hover:shadow-lg transition duration-300 overflow-hidden group ${cardStyles}`}
         >
-          {/* Optimized background with CSS instead of inline styles */}
+          {/* Background Image */}
           <div
-            className="absolute inset-0 pointer-events-none z-0 bg-cover bg-center bg-no-repeat"
+            className="absolute inset-0 bg-cover bg-center opacity-60"
             style={{
               backgroundImage: `url('${service.bgImage}')`,
-              filter: "blur(1px) brightness(0.33)",
-              transform: "scale(1.1)",
-              willChange: "transform",
             }}
           />
 
-          <div
-            className={`relative z-30 flex items-center justify-center w-14 h-14 mx-auto mb-4 rounded-xl ${service.iconBg} shadow-md backdrop-blur-sm border border-white/20`}
-          >
-            <Icon size={28} className="text-white drop-shadow-md" />
-          </div>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/50 z-10" />
 
-          <div className="px-4 text-center relative z-30">
-            <h3 className="text-lg font-semibold text-white mb-2 tracking-tight drop-shadow-md">
+          {/* Icon & Content */}
+          <div className="relative z-20 text-center">
+            <div
+              className={`w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-xl ${service.iconBg} border border-white/20 shadow-sm`}
+            >
+              <Icon size={28} className="text-white" />
+            </div>
+            <h3 className="text-lg font-semibold text-white mb-2">
               {service.title}
             </h3>
-            <p className="text-gray-100 text-sm leading-relaxed min-h-[48px] drop-shadow-sm">
+            <p className="text-gray-200 text-sm leading-relaxed max-w-md mx-auto">
               {service.shortDesc}
             </p>
           </div>
-
-          <div className="absolute inset-0 rounded-2xl pointer-events-none border border-transparent group-hover:border-blue-400/50 transition-all duration-500 z-30" />
         </div>
       );
     }
@@ -252,13 +216,7 @@ const Services: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true, margin: "-50px" }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
             Our Core Services
           </h2>
@@ -267,35 +225,23 @@ const Services: React.FC = () => {
             tailored to elevate modern businesses. Discover how we can help you
             innovate and grow.
           </p>
-        </motion.div>
+        </div>
 
         {/* Optimized Parallax Circuit Overlay - Removed window reference */}
 
         {/* Services Cards */}
         <div className="flex flex-col gap-10 mt-12">
           {/* Dedicated row for Blockchain Development */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="w-full"
-          >
+          <div className="w-full">
             <ServiceCard service={services[0]} isFirst={true} />
-          </motion.div>
+          </div>
 
           {/* Grid for remaining services */}
-          <motion.div
-            variants={gridVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.slice(1).map((service) => (
               <ServiceCard key={service.id} service={service} />
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
