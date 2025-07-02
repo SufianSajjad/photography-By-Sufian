@@ -6,19 +6,17 @@ const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
 
-  // Throttled scroll handler for better performance
   const handleScroll = useCallback(() => {
     if (scrollTimeout.current) {
       clearTimeout(scrollTimeout.current);
     }
-    
+
     scrollTimeout.current = setTimeout(() => {
       setIsScrolled(window.scrollY > 50);
     }, 10);
   }, []);
 
   useEffect(() => {
-    // Add passive event listener for better performance
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -54,17 +52,15 @@ const Header: React.FC = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "shadow-lg border-b border-gray-700/50"
-          : "bg-transparent"
+        isScrolled ? "shadow-lg border-b border-gray-700/50" : "bg-transparent"
       }`}
       style={{
-        background: isScrolled 
+        background: isScrolled
           ? "linear-gradient(135deg, rgba(17, 24, 39, 0.95) 0%, rgba(31, 41, 55, 0.95) 100%)"
           : "transparent",
         backdropFilter: isScrolled ? "blur(20px)" : "none",
         WebkitBackdropFilter: isScrolled ? "blur(20px)" : "none",
-        boxShadow: isScrolled 
+        boxShadow: isScrolled
           ? "0 4px 20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(59, 130, 246, 0.1) inset"
           : "none",
       }}
@@ -77,14 +73,18 @@ const Header: React.FC = () => {
             onClick={scrollToTop}
             className="flex items-center space-x-2 focus:outline-none group"
           >
-            <div className={`px-4 py-2 rounded-md transition-all duration-300 ${
-              isScrolled 
-                ? "bg-gray-800 hover:bg-gray-700 border border-gray-600/50" 
-                : "bg-gray-800/80 hover:bg-gray-700/90 backdrop-blur-sm"
-            }`}>
-              <span className="text-white font-semibold text-base tracking-wide group-hover:scale-105 transition-transform duration-200">
-                TECHVERSA
-              </span>
+            <div
+              className={` rounded-md transition-all duration-300 ${
+                isScrolled
+                  ? "bg-gray-800 hover:bg-gray-700 border border-gray-600/50"
+                  : "bg-gray-800/80 hover:bg-gray-700/90 backdrop-blur-sm"
+              }`}
+            >
+              <img
+                src="/images/logo/Techversa.jpeg"
+                alt="Company Logo"
+                className="h-14 w-auto group-hover:scale-105 transition-transform duration-200"
+              />
             </div>
           </button>
 
@@ -101,11 +101,13 @@ const Header: React.FC = () => {
                 }`}
               >
                 {item.name}
-                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
-                  isScrolled
-                    ? "bg-gradient-to-r from-blue-400 to-cyan-400"
-                    : "bg-gradient-to-r from-white to-cyan-400"
-                }`}></span>
+                <span
+                  className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
+                    isScrolled
+                      ? "bg-gradient-to-r from-blue-400 to-cyan-400"
+                      : "bg-gradient-to-r from-white to-cyan-400"
+                  }`}
+                ></span>
               </button>
             ))}
           </nav>
@@ -129,14 +131,18 @@ const Header: React.FC = () => {
             onClick={scrollToTop}
             className="flex items-center space-x-2 focus:outline-none"
           >
-            <div className={`px-3 py-1.5 rounded-lg shadow-lg transition-all duration-300 ${
-              isScrolled
-                ? "bg-gradient-to-r from-blue-600 to-cyan-500 border border-blue-500/50"
-                : "bg-gradient-to-r from-blue-600/80 to-cyan-500/80 backdrop-blur-sm"
-            }`}>
-              <span className="text-white font-bold tracking-wider text-sm">
-                TECHVERSA
-              </span>
+            <div
+              className={`px-3 py-1.5 rounded-lg shadow-lg transition-all duration-300 ${
+                isScrolled
+                  ? "bg-gradient-to-r from-blue-600 to-cyan-500 border border-blue-500/50"
+                  : "bg-gradient-to-r from-blue-600/80 to-cyan-500/80 backdrop-blur-sm"
+              }`}
+            >
+              <img
+                src="/images/logo/Techversa.jpeg"
+                alt="Company Logo"
+                className="h-6 w-auto"
+              />
             </div>
           </button>
 
@@ -158,10 +164,11 @@ const Header: React.FC = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div 
+          <div
             className="lg:hidden shadow-xl rounded-b-lg border-t border-gray-600/50 overflow-hidden backdrop-blur-md"
             style={{
-              background: "linear-gradient(135deg, rgba(17, 24, 39, 0.98) 0%, rgba(31, 41, 55, 0.98) 100%)",
+              background:
+                "linear-gradient(135deg, rgba(17, 24, 39, 0.98) 0%, rgba(31, 41, 55, 0.98) 100%)",
             }}
           >
             <div className="px-4 py-6 space-y-2">

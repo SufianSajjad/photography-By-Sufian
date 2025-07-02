@@ -8,19 +8,19 @@ const Standard = () => {
         id: 1,
         stat: "5+",
         label: "Clients Supported",
-        image: "/images/laptopCoding.jpg",
+        image: "/images/Standard/laptopCoding.jpg",
       },
       {
         id: 2,
         stat: "24/7",
         label: "Dedicated Support",
-        image: "/images/24hours.jpg",
+        image: "/images/Standard/24hours.jpg",
       },
       {
         id: 3,
         stat: "95%",
         label: "Client Satisfaction",
-        image: "/images/laptopCoding.jpg",
+        image: "/images/Standard/laptopCoding.jpg",
       },
     ],
     []
