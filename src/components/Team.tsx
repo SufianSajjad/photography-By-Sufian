@@ -27,6 +27,13 @@ const teamMembers = [
     skills: ["Django", "Python", "AWS", "PostgreSQL"],
   },
   {
+    name: "Waleed Hassan",
+    position: "Marketing Director",
+    image: "/images/team/WaleedHassan.jpeg",
+    bio: "Creative marketing strategist specializing in digital campaigns and brand growth. Expert in customer engagement.",
+    skills: ["Digital Marketing", "Brand Strategy", "Content Creation"],
+  },
+  {
     name: "Dania Haider",
     position: "UI/UX & Brand Designer",
     image: "/images/team/dania.png",
