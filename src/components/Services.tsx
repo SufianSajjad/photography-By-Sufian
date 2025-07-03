@@ -93,14 +93,12 @@ function Services() {
             : "px-4 py-6 min-h-[260px]"
         }`}
       >
-        <div className="text-center">
-          <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-xl bg-gray-700/50 border border-gray-600">
+        <div className="text-center space-y-4 px-4">
+          <div className="w-16 h-16 mx-auto flex items-center justify-center rounded-2xl bg-gradient-to-br from-gray-700 to-gray-800 border border-gray-600 shadow">
             <Icon size={28} className="text-white" />
           </div>
-          <h3 className="text-lg font-semibold text-white mb-2">
-            {service.title}
-          </h3>
-          <p className="text-gray-300 text-lg leading-relaxed max-w-md mx-auto">
+          <h3 className="text-xl font-semibold text-white">{service.title}</h3>
+          <p className="text-gray-400 text-base leading-relaxed">
             {service.shortDesc}
           </p>
         </div>
