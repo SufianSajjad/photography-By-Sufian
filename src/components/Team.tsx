@@ -28,11 +28,12 @@ const teamMembers = [
   },
   {
     name: "Dania Haider",
-    position: "DevOps and Cloud Engineer",
-    image: "/images/team/DaniaHaider.jpeg",
-    bio: "DevOps engineer with a passion for automation and cloud infrastructure. Expert in CI/CD pipelines and containerization.",
-    skills: ["AWS", "Docker", "Kubernetes", "CI/CD"],
+    position: "UI/UX & Brand Designer",
+    image: "/images/team/dania.png",
+    bio: "Creative designer specializing in user interfaces, brand identity, and visual storytelling. Passionate about crafting intuitive designs, logos, and marketing assets that align with brand vision.",
+    skills: ["UI/UX Design", "Figma", "Branding"],
   },
+
   {
     name: "Hanzla Feroz",
     position: "Full Stack Developer",
@@ -43,7 +44,7 @@ const teamMembers = [
   {
     name: "Murtaza Kazmi",
     position: "Full Stack Developer",
-    image: "/images/team/Murtazakazmi.jpeg",
+    image: "/images/team/mutazakazmi.jpeg",
     bio: "Versatile developer with expertise in modern web technologies. Passionate about clean code and scalable solutions.",
     skills: ["React", "Node.js", "Cloud Architecture"],
   },
