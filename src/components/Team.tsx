@@ -20,7 +20,7 @@ const teamMembers = [
     twitter: "#",
   },
   {
-    name: "Muhammad Ahan",
+    name: "Muhammad Ahsan",
     position: "Chief Technology Officer (CTO)",
     image: "/images/team/muhammadahsan.png",
     bio: "Experienced Django and full-stack developer leading the architecture and technology strategy at TechVersa. Passionate about scalable backend systems, cloud infrastructure, and team growth.",
