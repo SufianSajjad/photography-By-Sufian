@@ -17,24 +17,12 @@ import ScrollToTop from "./components/ScrollToTop";
 import ThemeProvider from "./context/ThemeContext";
 
 // Lazy-loaded sections
-const Hero = lazy(
-  () => import(/* webpackChunkName: "hero" */ "./components/Hero")
-);
-const Services = lazy(
-  () => import(/* webpackChunkName: "services" */ "./components/Services")
-);
-const Expertise = lazy(
-  () => import(/* webpackChunkName: "expertise" */ "./components/Expertise")
-);
-const Standard = lazy(
-  () => import(/* webpackChunkName: "standard" */ "./components/Standard")
-);
-const Team = lazy(
-  () => import(/* webpackChunkName: "team" */ "./components/Team")
-);
-const Contact = lazy(
-  () => import(/* webpackChunkName: "contact" */ "./components/Contact")
-);
+import Hero from "./components/Hero";
+import Services from "./components/Services";
+import Expertise from "./components/Expertise";
+import Standard from "./components/Standard";
+import Team from "./components/Team";
+import Contact from "./components/Contact";
 
 // Spinner
 const LoadingSpinner = memo(() => (
@@ -63,9 +51,9 @@ const useIntersectionObserver = (threshold = 0.1) => {
           observer.unobserve(entry.target);
         }
       },
-      { 
-        threshold, 
-        rootMargin: "100px 0px" // Preload content earlier
+      {
+        threshold,
+        rootMargin: "100px 0px", // Preload content earlier
       }
     );
 
@@ -100,11 +88,7 @@ const LazySection = memo(
     const [ref, isVisible] = useIntersectionObserver();
 
     return (
-      <div 
-        ref={ref} 
-        className={className}
-        style={{ contain: 'layout style' }}
-      >
+      <div ref={ref} className={className} style={{ contain: "layout style" }}>
         {isVisible ? (
           <Suspense fallback={fallback}>
             <Component {...props} />
@@ -120,7 +104,7 @@ LazySection.displayName = "LazySection";
 
 // Background
 const AppBackground = memo(() => (
-  <div className="fixed inset-0 -z-10" style={{ contain: 'strict' }}>
+  <div className="fixed inset-0 -z-10" style={{ contain: "strict" }}>
     <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950" />
     <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,_rgba(59,130,246,0.03),_transparent_50%)]" />
     <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,_rgba(34,197,94,0.03),_transparent_50%)]" />
@@ -147,7 +131,7 @@ const App = memo(() => {
     const timer = setTimeout(() => {
       Promise.all([
         import("./components/Services"),
-        import("./components/Expertise")
+        import("./components/Expertise"),
       ]);
     }, 1000);
 
@@ -185,14 +169,11 @@ const App = memo(() => {
           <Suspense fallback={<LoadingSpinner />}>
             <Hero />
           </Suspense>
-          {sections.slice(1).map(({ Component, key, minHeight }) => (
-            <LazySection
-              key={key}
-              Component={Component}
-              fallback={<LoadingSpinner />}
-              minHeight={minHeight}
-            />
-          ))}
+          <Services />
+          <Expertise />
+          <Standard />
+          <Team />
+          <Contact />
         </main>
         <Footer />
         <ScrollToTop />
