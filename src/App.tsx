@@ -32,7 +32,7 @@ function App() {
           <Contact />
         </main>
         <Footer />
-        <ScrollToTop />
+        {/* <ScrollToTop /> */}
       </div>
     </ThemeProvider>
   );
