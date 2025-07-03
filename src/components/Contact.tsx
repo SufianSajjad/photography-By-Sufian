@@ -17,15 +17,15 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    details: ["+92 321 1234567", "+92 42 1234567"],
-    link: "tel:+923211234567",
+    details: ["+92 3227287185", "+92 305 5903637"],
+    // link: "tel:+923211234567",
     color: "from-slate-600 to-slate-700",
   },
   {
     icon: Mail,
     title: "Email",
-    details: ["info@techversa.com", "support@techversa.com"],
-    link: "mailto:info@techversa.com",
+    details: ["techversa.io@gmail.com"],
+    link: "mailto:techversa.io@gmail.com",
     color: "from-blue-600 to-blue-700",
   },
   {
@@ -38,10 +38,7 @@ const contactInfo = [
   {
     icon: Clock,
     title: "Business Hours",
-    details: [
-      "Monday - Friday: 9:00 AM - 6:00 PM",
-      "Saturday: 10:00 AM - 4:00 PM",
-    ],
+    details: ["Monday - Saturday: 24/7"],
     link: null,
     color: "from-emerald-600 to-emerald-700",
   },
@@ -51,19 +48,19 @@ const socialLinks = [
   {
     name: "LinkedIn",
     icon: Linkedin,
-    url: "https://linkedin.com/company/techversa",
+    url: "https://www.linkedin.com/company/techversa-io/",
     bgColor: "from-blue-600 to-blue-700",
   },
   {
     name: "Twitter",
     icon: Twitter,
-    url: "https://twitter.com/techversa",
+    url: "https://x.com/TechVersaio",
     bgColor: "from-slate-600 to-slate-700",
   },
   {
     name: "Facebook",
     icon: Facebook,
-    url: "https://facebook.com/techversa",
+    url: "https://www.facebook.com/profile.php?id=61578146303107",
     bgColor: "from-blue-700 to-blue-800",
   },
   {
@@ -75,15 +72,15 @@ const socialLinks = [
   {
     name: "WhatsApp",
     icon: MessageCircle,
-    url: "https://wa.me/923211234567",
+    url: "https://wa.me/923227287185",
     bgColor: "from-green-600 to-green-700",
   },
 ];
 
 const whyChooseUsPoints = [
-  "Expert team with 10+ years of experience",
+  "Expert team with 3+ years of experience",
   "24/7 customer support and maintenance",
-  "Proven track record with 200+ projects",
+  "Proven track record with 15+ projects",
   "Tailored solutions for your business needs",
 ];
 
