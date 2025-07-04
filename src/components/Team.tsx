@@ -20,13 +20,6 @@ const teamMembers = [
     twitter: "#",
   },
   {
-    name: "Muhammad Ahsan",
-    position: "Chief Technology Officer (CTO)",
-    image: "/images/team/muhammadahsan.png",
-    bio: "Experienced Django and full-stack developer leading the architecture and technology strategy at TechVersa. Passionate about scalable backend systems, cloud infrastructure, and team growth.",
-    skills: ["Django", "Python", "AWS", "PostgreSQL"],
-  },
-  {
     name: "Waleed Hassan",
     position: "Marketing Director",
     image: "/images/team/WaleedHassan.jpeg",
@@ -34,11 +27,18 @@ const teamMembers = [
     skills: ["Digital Marketing", "Brand Strategy", "Content Creation"],
   },
   {
-    name: "Dania Haider",
-    position: "UI/UX & Brand Designer",
-    image: "/images/team/dania.png",
-    bio: "Creative designer specializing in user interfaces, brand identity, and visual storytelling. Passionate about crafting intuitive designs, logos, and marketing assets that align with brand vision.",
-    skills: ["UI/UX Design", "Figma", "Branding"],
+    name: "Muhammad Ahsan",
+    position: "Chief Technology Officer (CTO)",
+    image: "/images/team/muhammadahsan.png",
+    bio: "Experienced Django and full-stack developer leading the architecture and technology strategy at TechVersa. Passionate about scalable backend systems, cloud infrastructure, and team growth.",
+    skills: ["Django", "Python", "AWS", "PostgreSQL"],
+  },
+  {
+    name: "Murtaza Kazmi",
+    position: "Full Stack Developer",
+    image: "/images/team/mutazakazmi.jpeg",
+    bio: "Versatile developer with expertise in modern web technologies. Passionate about clean code and scalable solutions.",
+    skills: ["React", "Node.js", "Cloud Architecture"],
   },
 
   {
@@ -49,11 +49,11 @@ const teamMembers = [
     skills: ["React", "Node.js", "Cloud Architecture"],
   },
   {
-    name: "Murtaza Kazmi",
-    position: "Full Stack Developer",
-    image: "/images/team/mutazakazmi.jpeg",
-    bio: "Versatile developer with expertise in modern web technologies. Passionate about clean code and scalable solutions.",
-    skills: ["React", "Node.js", "Cloud Architecture"],
+    name: "Dania Haider",
+    position: "UI/UX & Brand Designer",
+    image: "/images/team/dania.png",
+    bio: "Creative designer specializing in user interfaces, brand identity, and visual storytelling. Passionate about crafting intuitive designs, logos, and marketing assets that align with brand vision.",
+    skills: ["UI/UX Design", "Figma", "Branding"],
   },
 ];
 
