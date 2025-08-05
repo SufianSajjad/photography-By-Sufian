@@ -28,6 +28,7 @@ const Technologies: React.FC = () => {
         { name: 'Tailwind CSS', color: 'bg-cyan-500', level: 'Expert' },
         { name: 'Svelte', color: 'bg-orange-500', level: 'Intermediate' },
         { name: 'Nuxt.js', color: 'bg-green-600', level: 'Advanced' },
+        //
       ]
     },
     {
