@@ -26,13 +26,7 @@ const teamMembers = [
     bio: "Creative marketing strategist specializing in digital campaigns and brand growth. Expert in customer engagement.",
     skills: ["Digital Marketing", "Brand Strategy", "Content Creation"],
   },
-  {
-    name: "Muhammad Ahsan",
-    position: "Chief Technology Officer (CTO)",
-    image: "/images/team/muhammadahsan.png",
-    bio: "Experienced Django and full-stack developer leading the architecture and technology strategy at TechVersa. Passionate about scalable backend systems, cloud infrastructure, and team growth.",
-    skills: ["Django", "Python", "AWS", "PostgreSQL"],
-  },
+ 
   {
     name: "Murtaza Kazmi",
     position: "Full Stack Developer",
