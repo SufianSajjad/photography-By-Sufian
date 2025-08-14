@@ -1,116 +1,146 @@
-import React, { useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import {
   Phone,
   Mail,
   MapPin,
   Clock,
-  Linkedin,
-  Twitter,
-  Facebook,
   Instagram,
+  Facebook,
   MessageCircle,
   ExternalLink,
-  Users,
+  Camera,
+  Send,
+  User,
+  Calendar,
+  Heart,
 } from "lucide-react";
 
 const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    details: ["+92 3227287185", "+92 305 5903637"],
-    // link: "tel:+923211234567",
-    color: "from-slate-600 to-slate-700",
+    details: ["+92 322 7287185", "+92 305 5903637"],
+    link: "tel:+923227287185",
+    color: "from-purple-500 to-purple-600",
   },
   {
     icon: Mail,
     title: "Email",
-    details: ["techversa.io@gmail.com"],
-    link: "mailto:techversa.io@gmail.com",
-    color: "from-blue-600 to-blue-700",
+    details: ["info@photographystudio.pk"],
+    link: "mailto:info@photographystudio.pk",
+    color: "from-blue-500 to-blue-600",
   },
   {
     icon: MapPin,
-    title: "Office",
-    details: ["Bahria Town, Lahore", "Punjab, Pakistan"],
-    link: "https://maps.google.com/?q=Bahria+Town+Lahore",
-    color: "from-gray-600 to-gray-700",
+    title: "Studio",
+    details: ["MM Alam Road, Gulberg", "Lahore, Punjab"],
+    link: "https://maps.google.com/?q=MM+Alam+Road+Gulberg+Lahore",
+    color: "from-yellow-500 to-yellow-600",
   },
   {
     icon: Clock,
-    title: "Business Hours",
-    details: ["Monday - Saturday: 24/7"],
+    title: "Studio Hours",
+    details: ["Mon - Sat: 9AM - 8PM", "Sun: By Appointment"],
     link: null,
-    color: "from-emerald-600 to-emerald-700",
+    color: "from-green-500 to-green-600",
   },
 ];
 
 const socialLinks = [
   {
-    name: "LinkedIn",
-    icon: Linkedin,
-    url: "https://www.linkedin.com/company/techversa-io/",
-    bgColor: "from-blue-600 to-blue-700",
-  },
-  {
-    name: "Twitter",
-    icon: Twitter,
-    url: "https://x.com/TechVersaio",
-    bgColor: "from-slate-600 to-slate-700",
+    name: "Instagram",
+    icon: Instagram,
+    url: "https://instagram.com/photographystudio_pk",
+    bgColor: "from-pink-500 to-purple-600",
   },
   {
     name: "Facebook",
     icon: Facebook,
-    url: "https://www.facebook.com/profile.php?id=61578146303107",
-    bgColor: "from-blue-700 to-blue-800",
-  },
-  {
-    name: "Instagram",
-    icon: Instagram,
-    url: "https://instagram.com/techversa",
-    bgColor: "from-gray-600 to-gray-700",
+    url: "https://facebook.com/photographystudiopk",
+    bgColor: "from-blue-600 to-blue-700",
   },
   {
     name: "WhatsApp",
     icon: MessageCircle,
     url: "https://wa.me/923227287185",
-    bgColor: "from-green-600 to-green-700",
+    bgColor: "from-green-500 to-green-600",
   },
 ];
 
 const whyChooseUsPoints = [
-  "Expert team with 3+ years of experience",
-  "24/7 customer support and maintenance",
-  "Proven track record with 15+ projects",
-  "Tailored solutions for your business needs",
+  "5+ years of professional photography experience",
+  "Specialized in Pakistani wedding traditions",
+  "Same-day photo editing and delivery available",
+  "Professional equipment including drone photography",
+  "Customizable packages for every budget",
+  "Lifetime online gallery access",
 ];
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    eventType: '',
+    eventDate: '',
+    message: ''
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate form submission
+    setTimeout(() => {
+      setIsSubmitting(false);
+      alert('Thank you for your inquiry! We\'ll get back to you within 24 hours.');
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        eventType: '',
+        eventDate: '',
+        message: ''
+      });
+    }, 2000);
+  };
+
   // Memoize contact info cards
   const contactInfoCards = useMemo(() => {
     return contactInfo.map((info, idx) => (
       <div
         key={idx}
-        className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow duration-300"
+        className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 hover:border-purple-500/30 transition-all duration-300 group"
       >
         <div className="flex items-start gap-4">
           <div
-            className={`w-12 h-12 bg-gradient-to-br ${info.color} rounded-lg flex items-center justify-center text-white shadow-sm`}
+            className={`w-14 h-14 bg-gradient-to-br ${info.color} rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}
           >
-            <info.icon className="w-6 h-6" />
+            <info.icon className="w-7 h-7" />
           </div>
           <div className="flex-1">
-            <h4 className="font-semibold text-gray-900 dark:text-white mb-3 text-lg">
+            <h4 className="font-bold text-white mb-3 text-lg">
               {info.title}
             </h4>
             {info.details.map((detail, detailIdx) => (
               <p
                 key={detailIdx}
-                className="text-gray-600 dark:text-gray-400 mb-1 leading-relaxed"
+                className="text-gray-300 mb-1 leading-relaxed"
               >
                 {info.link ? (
                   <a
                     href={info.link}
-                    className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 flex items-center gap-2 group/link"
+                    className="hover:text-purple-400 transition-colors duration-200 flex items-center gap-2 group/link"
                     target={info.link.startsWith("http") ? "_blank" : undefined}
                     rel={
                       info.link.startsWith("http")
@@ -142,11 +172,11 @@ const Contact = () => {
         href={social.url}
         target="_blank"
         rel="noopener noreferrer"
-        className={`group flex items-center gap-2 p-3 bg-gradient-to-r ${social.bgColor} rounded-lg text-white shadow-sm hover:shadow-md transition-all duration-200 hover:scale-105`}
+        className={`group flex items-center gap-3 p-4 bg-gradient-to-r ${social.bgColor} rounded-xl text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105`}
         title={`Follow us on ${social.name}`}
       >
-        <social.icon className="w-4 h-4" />
-        <span className="font-medium text-sm">{social.name}</span>
+        <social.icon className="w-5 h-5" />
+        <span className="font-semibold">{social.name}</span>
       </a>
     ));
   }, []);
@@ -155,137 +185,205 @@ const Contact = () => {
   const whyChooseUsContent = useMemo(() => {
     return whyChooseUsPoints.map((point, idx) => (
       <div key={idx} className="flex items-start gap-3">
-        <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-        <p className="text-gray-600 dark:text-gray-400 text-sm">{point}</p>
+        <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+        <p className="text-gray-300">{point}</p>
       </div>
     ));
   }, []);
 
-  // Memoize section header
-  const sectionHeader = useMemo(
-    () => (
+  return (
+    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
-          Get in <span className="text-blue-600 dark:text-blue-400">Touch</span>
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent">
+          Let's Capture Your Story
         </h2>
-        <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
-          We're here to help you achieve your business objectives. Contact our
-          team of experts to discuss your project requirements and explore how
-          we can add value to your organization.
+        <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          Ready to book your photography session? Get in touch with us to discuss your vision, 
+          check availability, and create something beautiful together.
         </p>
       </div>
-    ),
-    []
-  );
 
-  // Memoize Google Maps iframe
-  const googleMapsSection = useMemo(
-    () => (
-      <div className="mt-8 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
-        <div className="p-4 border-b border-gray-200 dark:border-gray-700">
-          <h4 className="font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-            <MapPin className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-            Our Location
-          </h4>
-        </div>
-        <iframe
-          title="TechVersa Office Location"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13613.073232063873!2d74.217932!3d31.400000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391904b2b2b2b2b2%3A0x1234567890abcdef!2sBahria%20Town%2C%20Lahore!5e0!3m2!1sen!2s!4v1680000000000!5m2!1sen!2s"
-          width="100%"
-          height="280"
-          style={{ border: 0 }}
-          allowFullScreen={true}
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        />
-      </div>
-    ),
-    []
-  );
-
-  // Memoize CTA section
-  const ctaSection = useMemo(
-    () => (
-      <div className="mt-16 text-center">
-        <div className="bg-gradient-to-r from-blue-50 to-gray-50 dark:from-gray-800 dark:to-gray-700 rounded-lg p-8 border border-gray-200 dark:border-gray-600">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-            Ready to Start Your Project?
-          </h3>
-          <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
-            Schedule a consultation with our team to discuss your requirements
-            and receive a customized solution proposal.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="mailto:info@techversa.com"
-              className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200 shadow-sm"
-            >
-              <Mail className="w-4 h-4 mr-2" />
-              Send Email
-            </a>
-            <a
-              href="tel:+923211234567"
-              className="inline-flex items-center justify-center px-6 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-semibold rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200"
-            >
-              <Phone className="w-4 h-4 mr-2" />
-              Call Now
-            </a>
-          </div>
-        </div>
-      </div>
-    ),
-    []
-  );
-
-  return (
-    <section
-      id="contact"
-      className="py-20 bg-gradient-to-br from-black to-black text-white"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        {sectionHeader}
-
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Contact Information Cards */}
-          <div className="lg:col-span-2">
-            <div className="grid md:grid-cols-2 gap-6">{contactInfoCards}</div>
-
-            {/* Google Maps */}
-            {googleMapsSection}
+      <div className="grid lg:grid-cols-2 gap-12">
+        {/* Contact Form */}
+        <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-8">
+          <div className="flex items-center gap-3 mb-8">
+            <Camera className="w-8 h-8 text-purple-400" />
+            <h3 className="text-2xl font-bold text-white">Book Your Session</h3>
           </div>
 
-          {/* Professional Info & Social Links */}
           <div className="space-y-6">
-            {/* Company Info */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-700">
-              <div className="flex items-center gap-3 mb-4">
-                <Users className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-                <h4 className="font-semibold text-gray-900 dark:text-white text-lg">
-                  Why Choose Us
-                </h4>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-gray-300 mb-2 font-medium">
+                  <User className="w-4 h-4 inline mr-2" />
+                  Full Name *
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 bg-gray-900/50 border border-gray-600/50 rounded-xl text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none transition-colors duration-300"
+                  placeholder="Your full name"
+                />
               </div>
-              <div className="space-y-3">{whyChooseUsContent}</div>
+              
+              <div>
+                <label className="block text-gray-300 mb-2 font-medium">
+                  <Mail className="w-4 h-4 inline mr-2" />
+                  Email Address *
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 bg-gray-900/50 border border-gray-600/50 rounded-xl text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none transition-colors duration-300"
+                  placeholder="your.email@example.com"
+                />
+              </div>
             </div>
 
-            {/* Social Media */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-700">
-              <h4 className="font-semibold text-gray-900 dark:text-white mb-4 text-lg">
-                Connect With Us
-              </h4>
-              <div className="grid grid-cols-2 gap-3">{socialLinksGrid}</div>
-              <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
-                <p className="text-xs text-gray-500 dark:text-gray-500">
-                  Follow us for updates on technology trends, company news, and
-                  industry insights.
-                </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-gray-300 mb-2 font-medium">
+                  <Phone className="w-4 h-4 inline mr-2" />
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 bg-gray-900/50 border border-gray-600/50 rounded-xl text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none transition-colors duration-300"
+                  placeholder="+92 3xx xxxxxxx"
+                />
               </div>
+              
+              <div>
+                <label className="block text-gray-300 mb-2 font-medium">
+                  <Heart className="w-4 h-4 inline mr-2" />
+                  Event Type *
+                </label>
+                <select
+                  name="eventType"
+                  value={formData.eventType}
+                //  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 bg-gray-900/50 border border-gray-600/50 rounded-xl text-white focus:border-purple-500 focus:outline-none transition-colors duration-300"
+                >
+                  <option value="">Select event type</option>
+                  <option value="wedding">Wedding Photography</option>
+                  <option value="engagement">Engagement Session</option>
+                  <option value="portrait">Portrait Session</option>
+                  <option value="family">Family Photography</option>
+                  <option value="corporate">Corporate Event</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-gray-300 mb-2 font-medium">
+                <Calendar className="w-4 h-4 inline mr-2" />
+                Preferred Date
+              </label>
+              <input
+                type="date"
+                name="eventDate"
+                value={formData.eventDate}
+                onChange={handleInputChange}
+                className="w-full px-4 py-3 bg-gray-900/50 border border-gray-600/50 rounded-xl text-white focus:border-purple-500 focus:outline-none transition-colors duration-300"
+              />
+            </div>
+
+            <div>
+              <label className="block text-gray-300 mb-2 font-medium">
+                Tell us about your vision
+              </label>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                rows={4}
+                className="w-full px-4 py-3 bg-gray-900/50 border border-gray-600/50 rounded-xl text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none transition-colors duration-300 resize-none"
+                placeholder="Describe your event, preferred style, location, number of guests, or any special requirements..."
+              />
+            </div>
+
+            <button
+           //   onClick={handleSubmit}
+              disabled={isSubmitting}
+              className="w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white py-4 rounded-xl font-semibold hover:from-purple-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            >
+              {isSubmitting ? (
+                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+              ) : (
+                <Send className="w-5 h-5" />
+              )}
+              {isSubmitting ? 'Sending...' : 'Send Inquiry'}
+            </button>
+            </div>
+        </div>
+
+        {/* Contact Information & Social */}
+        <div className="space-y-8">
+          {/* Contact Info Cards */}
+          <div className="grid gap-6">
+            {contactInfoCards}
+          </div>
+
+          {/* Why Choose Us */}
+          <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6">
+            <h4 className="font-bold text-white mb-6 text-xl flex items-center gap-2">
+              <Camera className="w-6 h-6 text-yellow-400" />
+              Why Choose Us
+            </h4>
+            <div className="space-y-4">{whyChooseUsContent}</div>
+          </div>
+
+          {/* Social Media */}
+          <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6">
+            <h4 className="font-bold text-white mb-6 text-xl">
+              Follow Our Work
+            </h4>
+            <div className="space-y-3">{socialLinksGrid}</div>
+            <div className="mt-6 pt-4 border-t border-gray-700/50">
+              <p className="text-sm text-gray-400">
+                Follow us to see our latest work, behind-the-scenes content, and client features.
+              </p>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Professional CTA */}
-        {ctaSection}
+      {/* Emergency Contact CTA */}
+      <div className="mt-16 text-center bg-gradient-to-r from-purple-900/30 to-blue-900/30 backdrop-blur-sm border border-purple-500/30 rounded-3xl p-12">
+        <h3 className="text-3xl font-bold text-white mb-4">Need Immediate Assistance?</h3>
+        <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+          For urgent bookings or last-minute photography needs, call us directly. 
+          We're available 24/7 for emergency and same-day sessions.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="tel:+923227287185"
+            className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold rounded-full hover:from-green-600 hover:to-green-700 transition-all duration-300 transform hover:scale-105"
+          >
+            <Phone className="w-5 h-5 mr-2" />
+            Call Now
+          </a>
+          <a
+            href="https://wa.me/923227287185"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-green-600 to-green-700 text-white font-semibold rounded-full hover:from-green-700 hover:to-green-800 transition-all duration-300 transform hover:scale-105"
+          >
+            <MessageCircle className="w-5 h-5 mr-2" />
+            WhatsApp
+          </a>
+        </div>
       </div>
     </section>
   );
