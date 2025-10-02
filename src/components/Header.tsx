@@ -46,51 +46,46 @@ const Header: React.FC = () => {
     { name: "About", href: "#about" },
     { name: "Services", href: "#services" },
     { name: "Portfolio", href: "#portfolio" },
-    { name: "Packages", href: "#packages" },
     { name: "Testimonials", href: "#testimonials" },
+    { name: "Contact", href: "#contact" },
   ];
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "shadow-lg border-b border-gray-700/50" : "bg-transparent"
+        isScrolled ? "shadow-lg border-b border-white/10" : "bg-transparent"
       }`}
       style={{
         background: isScrolled
-          ? "linear-gradient(135deg, rgba(14, 14, 14, 0.95) 0%, rgba(9, 13, 19, 0.95) 100%)"
+          ? "linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(17, 24, 39, 0.95) 100%)"
           : "transparent",
         backdropFilter: isScrolled ? "blur(20px)" : "none",
         WebkitBackdropFilter: isScrolled ? "blur(20px)" : "none",
-        boxShadow: isScrolled
-          ? "0 4px 20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(8, 2, 14, 0.1) inset"
-          : "none",
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center justify-between py-4">
-          {/* Logo */}
+          {/* Logo - More Elegant */}
           <button
             onClick={scrollToTop}
             className="flex items-center space-x-3 focus:outline-none group"
           >
             <div
-              className={`p-2 rounded-lg transition-all duration-300 ${
+              className={`p-2.5 rounded-xl transition-all duration-300 ${
                 isScrolled
-                  ? "bg-slate-800/90 hover:bg-slate-700 border border-slate-600/50"
-                  : "bg-slate-800/70 hover:bg-slate-700/90 backdrop-blur-sm border border-white/10"
+                  ? "bg-gradient-to-br from-rose-500/20 to-purple-500/20 border border-rose-500/30"
+                  : "bg-white/10 backdrop-blur-sm border border-white/20"
               }`}
             >
-              <Camera className="h-8 w-8 text-purple-400 group-hover:text-purple-300 transition-colors duration-200" />
+              <Camera className="h-7 w-7 text-rose-400 group-hover:text-rose-300 transition-colors duration-200" />
             </div>
             <div className="text-left">
-              <div className={`text-xl font-bold tracking-tight ${
-                isScrolled ? "text-white" : "text-white"
-              }`}>
+              <div className={`text-xl font-bold tracking-tight bg-gradient-to-r from-rose-300 via-purple-300 to-amber-300 bg-clip-text text-transparent`}>
                 Sufian Sajjad
               </div>
-              <div className={`text-sm font-medium ${
-                isScrolled ? "text-purple-300" : "text-purple-200"
+              <div className={`text-xs font-light tracking-widest uppercase ${
+                isScrolled ? "text-gray-400" : "text-gray-300"
               }`}>
                 Photography
               </div>
@@ -103,18 +98,18 @@ const Header: React.FC = () => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className={`text-lg font-medium relative group transition-all duration-300 ${
+                className={`text-base font-light relative group transition-all duration-300 ${
                   isScrolled
-                    ? "text-gray-100 hover:text-purple-400"
-                    : "text-white/90 hover:text-white"
+                    ? "text-gray-200 hover:text-rose-400"
+                    : "text-white hover:text-rose-300"
                 }`}
               >
                 {item.name}
                 <span
                   className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
                     isScrolled
-                      ? "bg-gradient-to-r from-purple-400 to-blue-400"
-                      : "bg-gradient-to-r from-white to-purple-400"
+                      ? "bg-gradient-to-r from-rose-400 to-purple-400"
+                      : "bg-gradient-to-r from-rose-300 to-amber-300"
                   }`}
                 ></span>
               </button>
@@ -123,42 +118,56 @@ const Header: React.FC = () => {
 
           {/* Contact Button & Social Links */}
           <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-2">
               <a
-                href="https://instagram.com/sufian_sajjad_photography"
+                href="https://instagram.com/weddingsbysufian"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`p-2 rounded-full transition-all duration-300 hover:scale-110 ${
                   isScrolled
-                    ? "text-gray-400 hover:text-purple-400 hover:bg-slate-700/50"
+                    ? "text-gray-400 hover:text-pink-400 hover:bg-pink-500/10"
                     : "text-white/70 hover:text-white hover:bg-white/10"
                 }`}
+                title="@weddingsbysufian"
               >
-                <Instagram className="w-5 h-5" />
+                <Instagram className="w-4 h-4" />
               </a>
               <a
-                href="https://facebook.com/sufiansajjadphotography"
+                href="https://instagram.com/photographybysufian"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`p-2 rounded-full transition-all duration-300 hover:scale-110 ${
                   isScrolled
-                    ? "text-gray-400 hover:text-blue-400 hover:bg-slate-700/50"
+                    ? "text-gray-400 hover:text-rose-400 hover:bg-rose-500/10"
+                    : "text-white/70 hover:text-white hover:bg-white/10"
+                }`}
+                title="@photographybysufian"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
+              <a
+                href="https://facebook.com/weddingsbysufian"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`p-2 rounded-full transition-all duration-300 hover:scale-110 ${
+                  isScrolled
+                    ? "text-gray-400 hover:text-blue-400 hover:bg-blue-500/10"
                     : "text-white/70 hover:text-white hover:bg-white/10"
                 }`}
               >
-                <Facebook className="w-5 h-5" />
+                <Facebook className="w-4 h-4" />
               </a>
             </div>
             
             <button
               onClick={() => scrollToSection("#contact")}
-              className={`px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg ${
+              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-xl ${
                 isScrolled
-                  ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 border border-purple-500/30"
-                  : "bg-gradient-to-r from-purple-600/80 to-blue-600/80 text-white hover:from-purple-600 hover:to-blue-600 backdrop-blur-sm border border-white/20"
+                  ? "bg-gradient-to-r from-rose-500 to-purple-500 text-white hover:from-rose-600 hover:to-purple-600"
+                  : "bg-gradient-to-r from-rose-500/90 to-purple-500/90 text-white hover:from-rose-500 hover:to-purple-500 backdrop-blur-sm border border-white/20"
               }`}
             >
-              Book Session
+              Book Now
             </button>
           </div>
         </div>
@@ -170,17 +179,17 @@ const Header: React.FC = () => {
             className="flex items-center space-x-2 focus:outline-none"
           >
             <div
-              className={`p-2 rounded-lg transition-all duration-300 ${
+              className={`p-2 rounded-xl transition-all duration-300 ${
                 isScrolled
-                  ? "bg-slate-800/90 border border-slate-600/50"
-                  : "bg-slate-800/70 backdrop-blur-sm border border-white/10"
+                  ? "bg-gradient-to-br from-rose-500/20 to-purple-500/20 border border-rose-500/30"
+                  : "bg-white/10 backdrop-blur-sm border border-white/20"
               }`}
             >
-              <Camera className="h-6 w-6 text-purple-400" />
+              <Camera className="h-6 w-6 text-rose-400" />
             </div>
             <div className="text-left">
-              <div className="text-lg font-bold text-white">Sufian Sajjad</div>
-              <div className="text-xs text-purple-300 font-medium">Photography</div>
+              <div className="text-lg font-bold bg-gradient-to-r from-rose-300 to-purple-300 bg-clip-text text-transparent">Sufian Sajjad</div>
+              <div className="text-xs text-gray-400 font-light tracking-wider uppercase">Photography</div>
             </div>
           </button>
 
@@ -188,7 +197,7 @@ const Header: React.FC = () => {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className={`p-2 rounded-lg transition-all duration-300 ${
               isScrolled
-                ? "bg-slate-700 hover:bg-slate-600 border border-slate-600/50"
+                ? "bg-gray-800/80 hover:bg-gray-700/80 border border-white/10"
                 : "bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20"
             }`}
           >
@@ -203,10 +212,10 @@ const Header: React.FC = () => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div
-            className="lg:hidden shadow-xl rounded-b-lg border-t border-slate-600/50 overflow-hidden backdrop-blur-md"
+            className="lg:hidden shadow-xl rounded-b-2xl border-t border-white/10 overflow-hidden backdrop-blur-md"
             style={{
               background:
-                "linear-gradient(135deg, rgba(15, 23, 42, 0.98) 0%, rgba(30, 41, 59, 0.98) 100%)",
+                "linear-gradient(135deg, rgba(0, 0, 0, 0.98) 0%, rgba(17, 24, 39, 0.98) 100%)",
             }}
           >
             <div className="px-4 py-6 space-y-2">
@@ -214,44 +223,60 @@ const Header: React.FC = () => {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="w-full text-left px-4 py-3 rounded-lg text-gray-200 hover:bg-slate-700/50 hover:text-purple-400 transition-all duration-200 font-medium"
+                  className="w-full text-left px-4 py-3 rounded-xl text-gray-200 hover:bg-rose-500/10 hover:text-rose-400 transition-all duration-200 font-light"
                 >
                   {item.name}
                 </button>
               ))}
 
-              <div className="pt-4 mt-4 border-t border-slate-600/50">
+              <div className="pt-4 mt-4 border-t border-white/10">
                 <button
                   onClick={() => scrollToSection("#contact")}
-                  className="w-full px-4 py-3 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold shadow-lg transition-transform duration-200 hover:scale-105"
+                  className="w-full px-4 py-3 rounded-xl bg-gradient-to-r from-rose-500 to-purple-500 text-white font-medium shadow-lg transition-transform duration-200 hover:scale-105"
                 >
-                  Book Session
+                  Book Your Session
                 </button>
 
                 <div className="mt-6 space-y-3">
-                  <div className="flex items-center gap-3 px-4 py-2 text-sm text-gray-300">
-                    <Phone className="w-4 h-4 text-purple-400" />
-                    <span>+92 321 1234567</span>
-                  </div>
-                  <div className="flex items-center gap-3 px-4 py-2 text-sm text-gray-300">
-                    <Mail className="w-4 h-4 text-purple-400" />
-                    <span>sufian.sajjad@gmail.com</span>
-                  </div>
+                  <a 
+                    href="tel:+923445271525"
+                    className="flex items-center gap-3 px-4 py-2 text-sm text-gray-300 hover:text-rose-400 transition-colors"
+                  >
+                    <Phone className="w-4 h-4 text-rose-400" />
+                    <span>+92 344 5271525</span>
+                  </a>
+                  <a
+                    href="mailto:photographybysufian@gmail.com"
+                    className="flex items-center gap-3 px-4 py-2 text-sm text-gray-300 hover:text-rose-400 transition-colors"
+                  >
+                    <Mail className="w-4 h-4 text-rose-400" />
+                    <span>photographybysufian@gmail.com</span>
+                  </a>
                   
                   <div className="flex items-center justify-center space-x-4 pt-3">
                     <a
-                      href="https://instagram.com/sufian_sajjad_photography"
+                      href="https://instagram.com/weddingsbysufian"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 rounded-full text-gray-400 hover:text-purple-400 hover:bg-slate-700/50 transition-all duration-300"
+                      className="p-2 rounded-full text-gray-400 hover:text-pink-400 hover:bg-pink-500/10 transition-all duration-300"
+                      title="@weddingsbysufian"
                     >
                       <Instagram className="w-5 h-5" />
                     </a>
                     <a
-                      href="https://facebook.com/sufiansajjadphotography"
+                      href="https://instagram.com/photographybysufian"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 rounded-full text-gray-400 hover:text-blue-400 hover:bg-slate-700/50 transition-all duration-300"
+                      className="p-2 rounded-full text-gray-400 hover:text-rose-400 hover:bg-rose-500/10 transition-all duration-300"
+                      title="@photographybysufian"
+                    >
+                      <Instagram className="w-5 h-5" />
+                    </a>
+                    <a
+                      href="https://facebook.com/weddingsbysufian"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-full text-gray-400 hover:text-blue-400 hover:bg-blue-500/10 transition-all duration-300"
                     >
                       <Facebook className="w-5 h-5" />
                     </a>
